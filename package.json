@@ -1,0 +1,8 @@
+{
+  "name": "form_mmcsr",
+  "version": "1.0.0",
+  "main": "app.js",
+  "repository": "https://github.com/albertagung/form_mmcsr.git",
+  "author": "albertagung <albiardtya@gmail.com>",
+  "license": "MIT"
+}
