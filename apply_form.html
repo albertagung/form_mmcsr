@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title>Hello, world!</title>
+  </head>
+  <body>
+    <div class="container" style="margin-top: 2em">
+    	<form>
+			  <div class="row" style="padding-bottom: 2em">
+			    <div class="col-md-3">
+			    	<label>Title</label>
+			      <input type="text" class="form-control" placeholder="Title">
+			    </div>
+			    <div class="col-md-3">
+			    	<label>First Name</label>
+			      <input type="text" class="form-control" placeholder="First Name">
+			    </div>
+			    <div class="col-md-3">
+			    	<label>Last Name</label>
+			      <input type="text" class="form-control" placeholder="Last Name">
+			    </div>
+			    <div class="col-md-3">
+			    	<label>Email Address</label>
+			      <input type="email" class="form-control" placeholder="Email Address">
+			    </div>
+			  </div>
+			  <div class="row" style="padding-bottom: 2em">
+			  	<div class="col-md-4">
+			  		<label>Address</label>
+			  		<input type="text" class="form-control" placeholder="Address">
+			  	</div>
+			  	<div class="form-group col-md-4"> <!-- Date input -->
+		        <label>Date of Birth</label>
+		        <div class="row">
+		        	<div class="col-md-3">
+		        		<select name="dayOfBirth" id="dayOfBirth" class="form-control"></select>
+		        	</div>
+		        	<div class="col-md-5">
+		        		<select name="monthOfBirth" id="monthOfBirth" class="form-control"></select>
+		        	</div>
+		        	<div class="col-md-4">
+		        		<select name="yearOfBirth" id="yearOfBirth" class="form-control"></select>
+		        	</div>
+		        </div>
+		      </div>
+		      <div class="col-md-4">
+			  		<label>Phone Number</label>
+			  		<div class="input-group">
+			        <div class="input-group-prepend">
+			          <div class="input-group-text">+(62)</div>
+			        </div>
+			        <input type="text" class="form-control" placeholder="8888 8888 8888">
+			      </div>
+			  	</div>
+			  </div>
+			  <div class="row" style="padding-bottom: 2em">
+			  	<div class="col-md-4">
+			  		<label for="">Company</label>
+			  		<input type="text" class="form-control" placeholder="Company name">
+			  	</div>
+			  	<div class="col-md-4">
+			  		<label for="">Industry / Area of Business</label>
+			  		<input type="text" class="form-control" placeholder="Ex. Retail / Distributor / Supplier">
+			  	</div>
+			  	<div class="col-md-4">
+			  		<label for="">Position</label>
+			  		<input type="text" class="form-control" placeholder="Ex. CEO / CFO / Manager">
+			  	</div>
+			  </div>
+			  <div class="row" style="padding-bottom: 2em">
+			  	<div class="col-md-6">
+			  		<label for="">Preferred Workshop Topic</label>
+			  		<input type="text" class="form-control" placeholder="Ex. Sustainability / Project Management / Management">
+			  	</div>
+			  	<div class="col-md-6">
+			  		<label for="">Workshop Package</label>
+			  		<input type="text" class="form-control" placeholder="Workshop package">
+			  	</div>
+			  </div>
+			</form>
+			<div class="row">
+				<div class="col" style="text-align: center">
+					<button type="button" class="btn btn-success">Submit</button>
+				</div>
+			</div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script
+	  src="https://code.jquery.com/jquery-3.3.1.min.js"
+	  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+	  crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="/formScript.js"></script>
+    <script type="text/javascript">
+    	$(document).ready(function(){
+
+    		// Setting date of birth
+    		for (let i = 1; i <= 31; i++) {
+    			$('#dayOfBirth').append(`<option value="${i}" selected>${i}</option>`)
+    		}
+
+    		// Setting month of birth
+    		let months = [
+    			'January', 
+    			'February',
+    			'March',
+    			'April',
+    			'May',
+    			'June',
+    			'July',
+    			'August',
+    			'September',
+    			'October',
+    			'November',
+    			'December'
+    		]
+    		for (let month = 0; month < months.length; month++) {
+    			$('#monthOfBirth').append(`<option value="${month}" selected>${months[month]}</option>`)
+    		}
+
+    		// Setting year of birth
+    		let date = new Date()
+    		let minYear = 1800
+    		let maxYear = date.getFullYear()
+    		for (let year = minYear; year <= maxYear; year++) {
+    			$('#yearOfBirth').append(`<option value="${year}" selected>${year}</option>`)
+    		}
+			})
+    </script>
+  </body>
+</html>
