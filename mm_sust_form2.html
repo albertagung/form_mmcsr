@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Form</title>
+	<!-- Bootstrap CSS -->
+  <link 
+  	rel="stylesheet" 
+  	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" 
+  	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" 
+  	crossorigin="anonymous">
+	<!-- Custom CSS -->
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+	<!-- Navbar Section -->
+	<section id="navbar">
+		<nav class="navbar navbar-light bg-light">
+	  	<a class="navbar-brand" href="#">
+		    <img 
+		    	src="/assets/img/180220_MM_Sust_logo_dark_for_website-01.png" alt="">
+		  </a>
+		</nav>
+	</section>
+
+	<!-- Navigation Section -->
+	<section id="navigation">
+		<div class="container-fluid">
+			<div class="row justify-content-md-center">
+				<div class="col-md-12 text-center">
+					<h1>
+						Be Ready to become Sustainability Leaders
+					</h1>
+					<p class="ovalNavigation d-inline-block">1</p>
+					<hr class="d-inline-block">
+					<p 
+						class="ovalNavigation d-inline-block"
+						style="background-color: #4a90e2">2</p>
+					<hr class="d-inline-block">
+					<p class="ovalNavigation d-inline-block">3</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Form Content Section -->
+	<section id="formContent2" class="formContent">
+		<div class="container-fluid">
+			<div class="row justify-content-md-center">
+				<div class="col-md-12">
+					<h1>Review Application</h1>
+					<form id="formReviewApplication">
+						<div class="row">
+							<div class="col">
+								<p><b>Application ID</b></p>
+								<p style="color: #4a90e2"><b>000-B21-MMS-2018</b></p>
+							</div>
+							<div class="col">
+								<p><b>Applicant Name</b></p>
+								<p style="color: #4a90e2"><b>John Doe</b></p>
+							</div>
+						</div>
+						<br>
+						<div class="row">
+							<div class="col">
+								<p><b>Applying for MM-Sustainability</b></p>
+								<p>Batch 21 Intake, March 2018</p>
+								<hr>
+								<div class="d-flex">
+									<p class="mr-auto">Enter Application Fee</p>
+									<p class="ml-auto"><b>IDR 600.000</b></p>
+								</div>
+							</div>
+						</div>
+						<br>
+						<br>
+						<div class="row">
+							<div class="col">
+								<p><b>Payment Method</b></p>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col">
+								<div class="form-check">
+								  <input 
+								  	class="form-check-input" 
+								  	type="radio" 
+								  	name="cashPaymentOptionRadio" 
+								  	id="cashPaymentOptionRadio" 
+								  	value="Cash Payment upon admission test at MM-Sustainability Campus">
+								  <label class="form-check-label" for="">Cash Payment upon admission test at MM-Sustainability Campus</label>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col">
+								<div class="form-check">
+								  <input 
+								  	class="form-check-input" 
+								  	type="radio" 
+								  	name="bankTransferPaymentOptionRadio" 
+								  	id="bankTransferPaymentOptionRadio" 
+								  	value="Bank Transfer">
+								  <label class="form-check-label" for="">Bank Transfer</label>
+								</div>
+								<br>
+								<div id="bankDetailsComponent">
+									<div class="row">
+										<div class="col">
+											<p><b>ACCOUNT NUMBER</b></p>
+											<p>000 000 000 000</p>
+										</div>
+										<div class="col">
+											<p><b>ACCOUNT HOLDER NAME</b></p>
+											<p>CECT TRISAKTI UNIVERSITY</p>
+										</div>
+										<div class="col">
+											<p><b>BRANCH</b></p>
+											<p>BANK BCA HARMONI</p>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col">
+											<p><b>Please send your payment proof to <a href="">info@mmcsrusakti.com</a></b></p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</form>
+					<br>
+					<div class="d-flex justify-content-end">
+						<button 
+							id="btnNextForm1" 
+							class="btn btn-primary" 
+							style="background-color: transparent; color: black">
+							Save and Next
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Footer Section -->
+	<section id="footer">
+		<div class="container-fluid">
+			<div class="d-flex">
+				<p class="mr-auto">
+					Got Questions? Visit our Help Center or Call 021-57930117 for assistance
+				</p>
+				<p class="ml-auto">
+					COPYRIGHT© 2018 – CECT TRISAKTI UNIVERSITY
+				</p>
+			</div>
+			<div class="d-flex">
+				<p class="ml-auto">Site powered by <b>Cloudxier</b></p>
+			</div>
+		</div>
+	</section>
+	
+
+	<!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script 
+  	src="https://code.jquery.com/jquery-3.2.1.slim.min.js" 
+  	integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" 
+  	crossorigin="anonymous"></script>
+  <script 
+  	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" 
+  	integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" 
+  	crossorigin="anonymous"></script>
+  <script 
+  	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" 
+  	integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" 
+  	crossorigin="anonymous"></script>
+</body>
+</html>

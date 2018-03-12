@@ -1,0 +1,179 @@
+.navbar img {
+	width: auto;
+	height: 50px
+}
+
+#content .container-fluid {
+	background-image: linear-gradient(to top, #4a87e2, #9b80f3);
+  border: solid 1px #979797;
+  padding-bottom: 87px;
+  padding-top: 164px
+}
+
+#content .container-fluid h1 {
+	font-family: Helvetica;
+  font-size: 48px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.48;
+  letter-spacing: normal;
+  text-align: center;
+  color: #ffffff;
+  padding-bottom: 50px
+}
+
+#content .container-fluid h2 {
+	font-family: Helvetica;
+  font-size: 36px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: center;
+  color: #ffffff;
+}
+
+#content .container-fluid button {
+	margin: 25px;
+	background-color: transparent;
+	border-color: white
+}
+
+#content .container-fluid button:hover {
+	color: black;
+	background-color: #ffffff;
+  box-shadow: 0 2px 12px 1px rgba(0, 0, 0, 0.22);
+  border: solid 3px #ffffff;
+}
+
+#content .container-fluid h3 {
+	padding-top: 105px;
+	padding-bottom: 36px;
+	font-family: Helvetica;
+  font-size: 24px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: center;
+  color: #ffffff;
+}
+
+#content .container-fluid .ovalContent {
+	width: 158px;
+  height: 158px;
+  padding-top: 50px;
+	margin: 19px;
+  border: solid 2px #50e3c2;
+  border-radius: 200px;
+  text-align: center;
+  font-family: Helvetica;
+  font-size: 20px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: center;
+  color: #ffffff;
+}
+
+#footer .container-fluid {
+	padding-top: 33px
+}
+
+#footer .container-fluid p {
+	font-family: Helvetica;
+  font-size: 12px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: left;
+  color: #000000
+}
+
+#navigation .container-fluid {
+	padding-top: 94px;
+	padding-bottom: 94px
+}
+
+#navigation .container-fluid h1 {
+	font-family: Helvetica;
+  font-size: 40px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.88;
+  letter-spacing: normal;
+  text-align: center;
+  color: #4a90e2;
+}
+
+#navigation .container-fluid .ovalNavigation {
+	width: 33px;
+  height: 33px;
+  padding-left: 0.5px;
+  border-radius: 50px;
+  background-color: transparent;
+  border: solid 2px #4a90e2;
+}
+
+#navigation .container-fluid hr {
+	margin: 0;
+	width: 266px;
+  border: solid 3px #4a90e2;
+}
+
+.formContent .container-fluid {
+	background-color: #f9f9f9;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+  padding: 2em;
+}
+
+.formContent .container-fluid h1 {
+	object-fit: contain;
+  font-family: Helvetica;
+  font-size: 36px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #4a4a4a;
+}
+
+.formContent .container-fluid h2 {
+	font-family: Helvetica;
+  font-size: 24px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: center;
+  color: #4a4a4a;
+}
+
+.formContent .container-fluid form {
+	padding: 2em;
+	border: solid 3px #50e3c2;
+}
+
+.formContent .container-fluid button {
+	margin: 25px;
+	background-color: transparent;
+	color: black;
+	border: solid 2px #50e3c2;
+}
+
+.formContent .container-fluid button:hover {
+	margin: 25px;
+	color: white;
+	background-color: #4a90e2;
+	border: solid 2px #50e3c2;
+}

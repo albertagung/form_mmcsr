@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Form</title>
+ 	<!-- Bootstrap CSS -->
+  <link 
+  	rel="stylesheet" 
+  	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" 
+  	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" 
+  	crossorigin="anonymous">
+	<!-- Custom CSS -->
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+	<!-- Navbar Section -->
+	<section id="navbar">
+		<nav class="navbar navbar-light bg-light">
+	  	<a class="navbar-brand" href="#">
+		    <img 
+		    	src="/assets/img/180220_MM_Sust_logo_dark_for_website-01.png" alt="">
+		  </a>
+		</nav>
+	</section>
+
+	<!-- Navigation Section -->
+	<section id="navigation">
+		<div class="container-fluid">
+			<div class="row justify-content-md-center">
+				<div class="col-md-12 text-center">
+					<h1>
+						Be Ready to become Sustainability Leaders
+					</h1>
+					<p 
+						class="ovalNavigation d-inline-block"
+						id="ovalForm1">1</p>
+					<hr class="d-inline-block">
+					<p 
+						class="ovalNavigation d-inline-block"
+						id="ovalForm2">2</p>
+					<hr class="d-inline-block">
+					<p 
+						class="ovalNavigation d-inline-block"
+						id="ovalForm3">3</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Form Content 1 Section -->
+	<section id="formContent1" class="formContent">
+		<div class="container-fluid">
+			<div class="row justify-content-md-center">
+				<div class="col-md-12">
+					<h1>General Information</h1>
+					<form id='formGeneralInfo'>
+					  <div class="row">
+					  	<div class="col">
+					  		<p style="margin-bottom: 0">Applying for</p>
+					  		<p><b>MM-Sustainability</b></p>
+					  	</div>
+					    <div class="col">
+					    	<label for="">Batch Intake</label>
+					      <input 
+					      	name="batchIntake" 
+					      	type="text" 
+					      	class="form-control" 
+					      	placeholder="Batch Intake">
+					    </div>
+					    <div class="col">
+					    	<label for="">Choose Admission Test Date</label>
+					      <div class="row">
+				        	<div class="col-md-3">
+				        		<select 
+				        			name="dayAdmission" 
+				        			id="dayAdmission" 
+				        			class="form-control"></select>
+				        	</div>
+				        	<div class="col-md-5">
+				        		<select 
+				        			name="monthAdmission" 
+				        			id="monthAdmission" 
+				        			class="form-control"></select>
+				        	</div>
+				        	<div class="col-md-4">
+				        		<select 
+				        		name="yearAdmission" 
+				        		id="yearAdmission" 
+				        		class="form-control"></select>
+				        	</div>
+				        </div>
+		     			 </div>
+					    </div>
+					    <br>
+					    <div class="row">
+					    	<div class="col-md-8">
+					    		<label for="">Address</label>
+					    		<input
+					    			name="address" 
+					    			type="text" 
+					    			class="form-control" 
+					    			placeholder="Address">
+					    	</div>
+					    	<div class="col-md-4">
+					    		<label for="">Date of Birth</label>
+					    		<div class="row">
+					        	<div class="col-md-3">
+					        		<select 
+					        			name="dayOfBirth" 
+					        			id="dayOfBirth" 
+					        			class="form-control"></select>
+					        	</div>
+					        	<div class="col-md-5">
+					        		<select 
+					        			name="monthOfBirth" 
+					        			id="monthOfBirth" 
+					        			class="form-control"></select>
+					        	</div>
+					        	<div class="col-md-4">
+					        		<select 
+					        			name="yearOfBirth" 
+					        			id="yearOfBirth" 
+					        			class="form-control"></select>
+					        	</div>
+					        </div>
+					    	</div>
+					    </div>
+					    <br>
+					    <div class="row">
+					    	<div class="col-md-4">
+					    		<label for="">Postal Code</label>
+					    		<input 
+					    			name="postalCode"
+					    			type="text" 
+					    			class="form-control" 
+					    			placeholder="Postal Code">
+					    	</div>
+					    	<div class="col-md-4">
+					    		<label for="">Province</label>
+					    		<input 
+					    			name="province"
+					    			type="text" 
+					    			class="form-control" 
+					    			placeholder="Province">
+					    	</div>
+					    	<div class="col-md-2">
+					    		<label for="">City</label>
+					    		<input
+					    			name="city" 
+					    			type="text" 
+					    			class="form-control" 
+					    			placeholder="City">
+					    	</div>
+					    	<div class="col-md-2">
+					    		<label for="">Country</label>
+					    		<input 
+					    			name="country"
+					    			type="text" 
+					    			class="form-control" 
+					    			placeholder="Country">
+					    	</div>
+					    </div>
+					    <br>
+					    <div class="row">
+				    		<div class="col-md-4">
+					    		<label for="">Type of Identity</label>
+					    		<input
+					    			name="typeOfIdentity" 
+					    			type="text" 
+					    			class="form-control" 
+					    			placeholder="Type of Identity">
+					    	</div>
+					    	<div class="col-md-4">
+					    		<label for="">Identity Number</label>
+					    		<input 
+					    			name="identityNumber"
+					    			type="text" 
+					    			class="form-control" 
+					    			placeholder="Identity Number">
+					    	</div>
+					    	<div class="col-md-4">
+					    		<label for="">Marital Status</label>
+					    		<input 
+					    			name="maritalStatus"
+					    			type="text" 
+					    			class="form-control" 
+					    			placeholder="Marital Status">
+					    	</div>
+					    </div>
+					    <br>
+					    <div class="row">
+					    	<div class="col-md-4">
+					    		<label for="">Phone Number</label>
+					    		<input 
+					    			name="phoneNumber"
+					    			type="text" 
+					    			class="form-control" 
+					    			placeholder="Phone Number">
+					    	</div>
+					    	<div class="col-md-4">
+					    		<label for="">Email Address</label>
+					    		<input 
+					    			name="emailAddress"
+					    			type="text" 
+					    			class="form-control" 
+					    			placeholder="Email Address">
+					    	</div>
+					    	<div class="col-md-4">
+					    		<label for="">Religion</label>
+					    		<input 
+					    			name="religion"
+					    			type="text" 
+					    			class="form-control" 
+					    			placeholder="Religion">
+					    	</div>
+					    </div>
+					  </div>
+					</form>
+				</div>
+				<div class="row justify-content-md-center" style="padding-top: 65px">
+					<div class="col-md-12">
+						<h1>Academic and Professional Qualifications</h1>
+						<form id="formAcademic">
+							<div class="row">
+								<div class="col">
+									<p><b>Junior High School</b></p>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-8">
+									<label for="">School Name</label>
+					    		<input 
+					    			id="juniorHighSchoolName"
+					    			type="text" 
+					    			class="form-control" 
+					    			placeholder="School Name">
+								</div>
+								<div class="col-md-2">
+									<label for="">From</label>
+					    		<input 
+					    			id="juniorHighSchoolStartYear" 
+					    			type="text" 
+					    			class="form-control" 
+					    			placeholder="From">
+								</div>
+								<div class="col-md-2">
+									<label for="">To</label>
+					    		<input 
+					    			id="juniorHighSchoolEndYear"
+					    			type="text" 
+					    			class="form-control" 
+					    			placeholder="To">
+								</div>
+							</div>
+							<br>
+							<div class="row">
+								<div class="col">
+									<p><b>Senior High School</b></p>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-8">
+									<label for="">School Name</label>
+					    		<input 
+					    			id="seniorHighSchoolName"
+					    			type="text" 
+					    			class="form-control" 
+					    			placeholder="School Name">
+								</div>
+								<div class="col-md-2">
+									<label for="">From</label>
+					    		<input 
+					    			id="seniorHighSchoolStartYear"
+					    			type="text" 
+					    			class="form-control" 
+					    			placeholder="From">
+								</div>
+								<div class="col-md-2">
+									<label for="">To</label>
+					    		<input 
+					    			id="seniorHighSchoolEndYear"
+					    			type="text" 
+					    			class="form-control" 
+					    			placeholder="To">
+								</div>
+							</div>
+							<br>
+							<div class="row">
+								<div class="col">
+									<p><b>University</b></p>
+								</div>
+							</div>
+							<div id="universityAdding">
+								<div class="row">
+									<div class="col-md-8">
+										<label for="">University Name</label>
+						    		<input 
+						    			id="universityName" 
+						    			type="text" 
+						    			class="form-control universityName" 
+						    			placeholder="University Name">
+									</div>
+									<div class="col-md-2">
+										<label for="">From</label>
+						    		<input 
+						    			id="universityStartYear" 
+						    			type="text" 
+						    			class="form-control universityStartYear" 
+						    			placeholder="From">
+									</div>
+									<div class="col-md-2">
+										<label for="">To</label>
+						    		<input 
+						    			id="universityEndYear" 
+						    			type="text" 
+						    			class="form-control universityEndYear" 
+						    			placeholder="To">
+									</div>
+								</div>
+								<br>
+								<div class="row">
+									<div class="col-md-4">
+										<label for="">Degree</label>
+						    		<input 
+						    			id="degree" 
+						    			name="degree" 
+						    			type="text" 
+						    			class="form-control degree" 
+						    			placeholder="Degree">
+									</div>
+									<div class="col-md-4">
+										<label for="">Major / Concetration</label>
+						    		<input
+						    			id="major"
+						    			name="major" 
+						    			type="text" 
+						    			class="form-control major" 
+						    			placeholder="Major / Concetration">
+									</div>
+								</div>
+							</div>
+							<div class="row justify-content-md-center">
+								<button 
+									class="btn btn-primary" 
+									id="btnAddUniversity">Add More University</button>
+							</div>
+							<br>
+							<div class="row">
+								<div class="col">
+									<p><b>English Qualifications</b></p>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-4">
+									<label for="">Have you ever joined IELTS test?</label>
+									<br>
+									<div class="form-check form-check-inline">
+									  <input 
+									  	class="form-check-input" 
+									  	type="radio" 
+									  	name="ieltsRadio" 
+									  	id="ieltsRadioNo" 
+									  	value="no">
+									  <label class="form-check-label" for="">No</label>
+									</div>
+									<div class="form-check form-check-inline">
+									  <input 
+									  	class="form-check-input" 
+									  	type="radio" 
+									  	name="ieltsRadio" 
+									  	id="ieltsRadioYes" 
+									  	value="yes">
+									  <label class="form-check-label" for="">Yes</label>
+									  <input 
+									  	id="scoreIelts"
+									  	type="text" 
+									  	class="form-control" 
+									  	placeholder="(Obtained Score)"
+									  	style="margin-left: 1em"
+									  	disabled>
+									</div>
+								</div>
+								<div class="col-md-4">
+									<label for="">Have you ever joined TOEFL test?</label>
+									<br>
+									<div class="form-check form-check-inline">
+									  <input 
+									  	class="form-check-input" 
+									  	type="radio" 
+									  	name="toeflRadio" 
+									  	id="toeflRadioNo" value="no">
+									  <label class="form-check-label" for="">No</label>
+									</div>
+									<div class="form-check form-check-inline">
+									  <input 
+									  	class="form-check-input" 
+									  	type="radio" 
+									  	name="toeflRadio" 
+									  	id="toeflRadioYes" value="yes">
+									  <label class="form-check-label" for="">Yes</label>
+									  <input 
+									  	id="scoreToefl" 
+									  	type="text" 
+									  	class="form-control" 
+									  	placeholder="(Obtained Score)"
+									  	style="margin-left: 1em"
+									  	disabled>
+									</div>
+								</div>
+								<div class="col-md-4">
+									<label for="">Have you ever joined TPA (SAT) test?</label>
+									<br>
+									<div class="form-check form-check-inline">
+									  <input 
+									  	class="form-check-input" 
+									  	type="radio" 
+									  	name="tpaRadio" 
+									  	id="tpaRadioNo" value="no">
+									  <label class="form-check-label" for="">No</label>
+									</div>
+									<div class="form-check form-check-inline">
+									  <input 
+									  	class="form-check-input" 
+									  	type="radio" 
+									  	name="tpaRadio" 
+									  	id="tpaRadioYes" value="yes">
+									  <label class="form-check-label" for="">Yes</label>
+									  <input 
+									  	id="scoreTpa" 
+									  	type="text" 
+									  	class="form-control" 
+									  	placeholder="(Obtained Score)"
+									  	style="margin-left: 1em"
+									  	disabled>
+									</div>
+								</div>
+							</div>
+							<br>
+							<div class="row">
+								<div class="col">
+									<p><b>Other Qualifications</b></p>
+								</div>
+							</div>
+							<div id="qualificationsAdding">
+								<div class="row">
+									<div class="col-md-4">
+										<label for="">Course</label>
+										<input 
+											id="courseQualification"
+											name="courseQualification"
+											type="text"
+											class="form-control course"
+											placeholder="Course">
+									</div>
+									<div class="col-md-8">
+										<label for="">Course Details</label>
+										<input 
+											id="detailQualification"
+											name="detailQualification"
+											type="text"
+											class="form-control courseDetail"
+											placeholder="Course Details">
+									</div>
+								</div>
+							</div>
+							<div class="row justify-content-md-center">
+								<button 
+									class="btn btn-primary" 
+									id="btnAddQualification">Add More Qualifications</button>
+							</div>
+						</form>
+						<div class="row justify-content-md-center" style="padding-top: 65px">
+							<div class="col-md-12">
+								<h1>Financial Provision for Course</h1>
+								<form id="formFinancial">
+									<div class="row">
+										<div class="col">
+											<p><b>How I finance my graduate program</b></p>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-md-4">
+											<div class="form-check form-check-inline">
+											  <input 
+											  	class="form-check-input" 
+											  	type="radio" 
+											  	name="personalFunRadio" 
+											  	id="personalFunRadio" value="Personal Funds">
+											  <label class="form-check-label" for="">Personal Funds</label>
+											</div>
+										</div>
+										<div class="col-md-4">
+											<div class="form-check form-check-inline">
+											  <input 
+											  	class="form-check-input" 
+											  	type="radio" 
+											  	name="placeEmploymentRadio" 
+											  	id="placeEmploymentRadio" value="My place of employment is funding my education">
+											  <label class="form-check-label" for="">My place of employment is funding my education</label>
+											</div>
+										</div>
+										<div class="col-md-4">
+											<div class="form-check form-check-inline">
+											  <input 
+											  	class="form-check-input" 
+											  	type="radio" 
+											  	name="scholarshipRadio" 
+											  	id="scholarshipRadio" value="Scholarship from other foundation or organizations">
+											  <label class="form-check-label" for="">Scholarship from other foundation or organizations</label>
+											</div>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col">
+											<div class="form-check form-check-inline">
+												<input 
+												  	class="form-check-input" 
+												  	type="radio" 
+												  	name="otherSourceRadio" 
+												  	id="otherSourceRadio" value="Others (please specify)">
+											  <label 
+											  	class="form-check-label" 
+											  	for="">Others (please specify)</label>
+											</div>
+											<div class="row">
+												<div class="col-md-4">
+													<input 
+											  	type="text" 
+											  	class="form-control" 
+											  	placeholder="Please specify"
+											  	disabled>
+												</div>
+											</div>
+										</div>
+									</div>
+								</form>
+								<div class="row justify-content-md-center" style="padding-top: 65px">
+									<div class="col-md-12">
+										<h1>Supporting Information</h1>
+										<form id="formSupporting">
+											<p><b>How did you learn about MM-Sustainability?</b></p>
+											<div class="row">
+												<div class="col-md-2">
+													<div class="form-check form-check-inline">
+													  <input 
+													  	class="form-check-input" 
+													  	type="radio" 
+													  	name="facebookRadio" 
+													  	id="facebookRadio" value="Facebook">
+													  <label class="form-check-label" for="">Facebook</label>
+													</div>
+												</div>
+												<div class="col-md-2">
+													<div class="form-check form-check-inline">
+													  <input 
+													  	class="form-check-input" 
+													  	type="radio" 
+													  	name="linkedinRadio" 
+													  	id="linkedinRadio" value="Linkedin">
+													  <label class="form-check-label" for="">Linkedin</label>
+													</div>
+												</div>
+												<div class="col-md-2">
+													<div class="form-check form-check-inline">
+													  <input 
+													  	class="form-check-input" 
+													  	type="radio" 
+													  	name="googleSearchRadio" 
+													  	id="googleSearchRadio" value="Google Search">
+													  <label class="form-check-label" for="">Google Search</label>
+													</div>
+												</div>
+												<div class="col-md-2">
+													<div class="form-check form-check-inline">
+													  <input 
+													  	class="form-check-input" 
+													  	type="radio" 
+													  	name="websiteRadio" 
+													  	id="websiteRadio" value="Website">
+													  <label class="form-check-label" for="">Website</label>
+													</div>
+												</div>
+												<div class="col-md-3">
+													<div class="form-check form-check-inline">
+													  <input 
+													  	class="form-check-input" 
+													  	type="radio" 
+													  	name="friendRecommendationRadio" 
+													  	id="friendRecommendationRadio" value="Friend's Recommendation">
+													  <label class="form-check-label" for="">Friend's Recommendation</label>
+													</div>
+												</div>
+											</div>
+											<div class="row">
+												<div class="col">
+													<div class="form-check form-check-inline">
+													  <input 
+													  	class="form-check-input" 
+													  	type="radio" 
+													  	name="otherRecommendationRadio" 
+													  	id="otherRecommendationRadio" value="Others (please specify)">
+													  <label class="form-check-label" for="">Others (please specify)</label>
+													</div>
+												</div>
+											</div>
+											<div class="row">
+												<div class="col-md-4">
+													<input 
+											  	type="text" 
+											  	class="form-control" 
+											  	placeholder="Please specify"
+											  	disabled>
+												</div>
+											</div>
+											<br>
+											<div class="row">
+												<div class="col-md-8">
+													<p><b>Personal factors that motivate me to attend MM-Sustainability</b></p>
+												</div>
+											</div>
+											<div class="row">
+												<div class="col-md-8">
+													<textarea 
+														name="personalFactorTextArea" 
+														id="personalFactorTextArea" 
+														cols="100" 
+														rows="10"></textarea>
+												</div>
+											</div>
+										</form>
+										<div 
+											class="row" 
+											style="padding-top: 1em">
+											<div class="col-md-12">
+												<div class="form-check">
+												  <input 
+												  	class="form-check-input" 
+												  	type="checkbox" 
+												  	value="" 
+												  	id="agreeNewsletterCheckbox">
+												  <label class="form-check-label" for="defaultCheck1">
+												    I agree to receive newsletter and updates from MM-Sustainability
+												  </label>
+												</div>
+											</div>
+										</div>
+										<div 
+											class="row"
+											style="padding-top: 1em">
+											<div class="col-md-12">
+												<div class="form-check">
+												  <input 
+												  	class="form-check-input" 
+												  	type="checkbox" 
+												  	value="" 
+												  	id="agreeNewsletterCheckbox">
+												  <label class="form-check-label" for="defaultCheck1">
+												    I hereby apply for admissions to the MM-Sustainability Trisakti University. I declare that the information given in this form is true and correct, and if accepted as student, I will comply with all the conditions, rules and regulations of the university. I acknowledge that the provision 
+														of false or misleading information may result in non-acceptance of this application or immediate exclusion form this university. I authorize 
+														MM-Sustainability Trisakti University where necessary, to obtain from any other education institution evidence of my academic record or 
+														to seek other corroboration with respect to my application.
+												  </label>
+												</div>
+											</div>
+										</div>
+										<div class="d-flex justify-content-end">
+											<button 
+												id="btnNextForm1" 
+												class="btn btn-primary" 
+												style="background-color: transparent; color: black">
+												Save and Next
+											</button>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Form Content 2 Section -->
+	<section id="formContent2" class="formContent">
+		<div class="container-fluid">
+			<div class="row justify-content-md-center">
+				<div class="col-md-12">
+					<h1>Review Application</h1>
+					<form id="formReviewApplication">
+						<div class="row">
+							<div class="col">
+								<p><b>Application ID</b></p>
+								<p style="color: #4a90e2"><b>000-B21-MMS-2018</b></p>
+							</div>
+							<div class="col">
+								<p><b>Applicant Name</b></p>
+								<p style="color: #4a90e2"><b>John Doe</b></p>
+							</div>
+						</div>
+						<br>
+						<div class="row">
+							<div class="col">
+								<p><b>Applying for MM-Sustainability</b></p>
+								<p>Batch 21 Intake, March 2018</p>
+								<hr>
+								<div class="d-flex">
+									<p class="mr-auto">Enter Application Fee</p>
+									<p class="ml-auto"><b>IDR 600.000</b></p>
+								</div>
+							</div>
+						</div>
+						<br>
+						<br>
+						<div class="row">
+							<div class="col">
+								<p><b>Payment Method</b></p>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col">
+								<div class="form-check">
+								  <input 
+								  	class="form-check-input" 
+								  	type="radio" 
+								  	name="cashPaymentOptionRadio" 
+								  	id="cashPaymentOptionRadio" 
+								  	value="Cash Payment upon admission test at MM-Sustainability Campus">
+								  <label class="form-check-label" for="">Cash Payment upon admission test at MM-Sustainability Campus</label>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col">
+								<div class="form-check">
+								  <input 
+								  	class="form-check-input" 
+								  	type="radio" 
+								  	name="bankTransferPaymentOptionRadio" 
+								  	id="bankTransferPaymentOptionRadio" 
+								  	value="Bank Transfer">
+								  <label class="form-check-label" for="">Bank Transfer</label>
+								</div>
+								<br>
+								<div id="bankDetailsComponent">
+									<div class="row">
+										<div class="col">
+											<p><b>ACCOUNT NUMBER</b></p>
+											<p>000 000 000 000</p>
+										</div>
+										<div class="col">
+											<p><b>ACCOUNT HOLDER NAME</b></p>
+											<p>CECT TRISAKTI UNIVERSITY</p>
+										</div>
+										<div class="col">
+											<p><b>BRANCH</b></p>
+											<p>BANK BCA HARMONI</p>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col">
+											<p><b>Please send your payment proof to <a href="">info@mmcsrusakti.com</a></b></p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</form>
+					<br>
+					<div class="d-flex justify-content-end">
+						<button 
+							id="btnNextForm2" 
+							class="btn btn-primary" 
+							style="background-color: transparent; color: black">
+							Save and Next
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Form Content 3 Section -->
+	<section id="formContent3" class="formContent">
+		<div class="container-fluid">
+			<div class="row justify-content-md-center">
+				<div class="col-md-12 text-center">
+					<h1 style="padding-bottom: 49px">Thank you for your application</h1>
+					<h2>Application ID</h2>
+					<h2 style="color: #4a90e2; padding-bottom: 18px">000-B21-MMS-2018</h2>
+					<p style="padding-bottom: 54px">Please keep this application ID as your reference</p>
+					<p style="padding-bottom: 5px">a Confirmation will be sent to your email shortly and our academics division will review this application.</p>
+					<button id="btnPrint" type="submit" class="btn btn-primary">
+						Print This Page
+					</button>
+					<button id="btnBackToHome" type="submit" class="btn btn-primary">
+						Back to Home
+					</button>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Footer Section -->
+	<section id="footer">
+		<div class="container-fluid">
+			<div class="d-flex">
+				<p class="mr-auto">
+					Got Questions? Visit our Help Center or Call 021-57930117 for assistance
+				</p>
+				<p class="ml-auto">
+					COPYRIGHT© 2018 – CECT TRISAKTI UNIVERSITY
+				</p>
+			</div>
+			<div class="d-flex">
+				<p class="ml-auto">Site powered by <b>Cloudxier</b></p>
+			</div>
+		</div>
+	</section>
+
+
+ 	<!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script 
+  	src="https://code.jquery.com/jquery-3.2.1.slim.min.js" 
+  	integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" 
+  	crossorigin="anonymous"></script>
+  <script 
+  	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" 
+  	integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" 
+  	crossorigin="anonymous"></script>
+  <script 
+  	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" 
+  	integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" 
+  	crossorigin="anonymous"></script>
+  <!-- UUID V4 -->
+  <script src="http://wzrd.in/standalone/uuid%2Fv4@latest"></script>
+  <!-- Form Script -->
+  <script src="formScript.js"></script>
+</body>
+</html>
