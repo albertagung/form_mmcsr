@@ -633,7 +633,8 @@
 												</div>
 											</div>
 										</form>
-										<div 
+										<form id="formAgree" style="border: none">
+											<div 
 											class="row" 
 											style="padding-top: 1em">
 											<div class="col-md-12">
@@ -652,22 +653,23 @@
 										<div 
 											class="row"
 											style="padding-top: 1em">
-											<div class="col-md-12">
-												<div class="form-check">
-												  <input 
-												  	class="form-check-input" 
-												  	type="checkbox" 
-												  	value="" 
-												  	id="agreeNewsletterCheckbox">
-												  <label class="form-check-label" for="defaultCheck1">
-												    I hereby apply for admissions to the MM-Sustainability Trisakti University. I declare that the information given in this form is true and correct, and if accepted as student, I will comply with all the conditions, rules and regulations of the university. I acknowledge that the provision 
-														of false or misleading information may result in non-acceptance of this application or immediate exclusion form this university. I authorize 
-														MM-Sustainability Trisakti University where necessary, to obtain from any other education institution evidence of my academic record or 
-														to seek other corroboration with respect to my application.
-												  </label>
+												<div class="col-md-12">
+													<div class="form-check">
+													  <input 
+													  	class="form-check-input" 
+													  	type="checkbox" 
+													  	value="" 
+													  	id="agreeNewsletterCheckbox">
+													  <label class="form-check-label" for="defaultCheck1">
+													    I hereby apply for admissions to the MM-Sustainability Trisakti University. I declare that the information given in this form is true and correct, and if accepted as student, I will comply with all the conditions, rules and regulations of the university. I acknowledge that the provision 
+															of false or misleading information may result in non-acceptance of this application or immediate exclusion form this university. I authorize 
+															MM-Sustainability Trisakti University where necessary, to obtain from any other education institution evidence of my academic record or 
+															to seek other corroboration with respect to my application.
+													  </label>
+													</div>
 												</div>
-											</div>
-										</div>
+											</div>	
+										</form>
 										<div class="d-flex justify-content-end">
 											<button 
 												id="btnNextForm1" 
@@ -778,7 +780,7 @@
 							id="btnNextForm2" 
 							class="btn btn-primary" 
 							style="background-color: transparent; color: black">
-							Save and Next
+							Submit
 						</button>
 					</div>
 				</div>
@@ -829,10 +831,10 @@
 
  	<!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-  <script 
-  	src="https://code.jquery.com/jquery-3.2.1.slim.min.js" 
-  	integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" 
-  	crossorigin="anonymous"></script>
+  <script
+	  src="https://code.jquery.com/jquery-3.3.1.min.js"
+	  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+	  crossorigin="anonymous"></script>
   <script 
   	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" 
   	integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" 
@@ -843,6 +845,8 @@
   	crossorigin="anonymous"></script>
   <!-- UUID V4 -->
   <script src="http://wzrd.in/standalone/uuid%2Fv4@latest"></script>
+  <!-- Sweet Alert -->
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   <!-- Form Script -->
   <script src="formScript.js"></script>
   <!-- Date script -->

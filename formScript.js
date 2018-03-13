@@ -9,30 +9,41 @@ $(document).ready(() => {
 
 	// On save and next form section 1
 	$('#btnNextForm1').click(() => {
-		// Calling the form objects getter
-		getAllData()
-		// Transferring data to form section 2
-		transferDataToForm2()
-		// Changing navigation component dynamicly
-		validateInput()
-		$('#formContent1').hide()
-		$('#ovalForm1').css('background-color', '')
-		$('#ovalForm2').css('background-color', '#4a90e2')
-		$('#formContent2').show()
-		window.scrollTo(0,0)
+		if (validateInputSection1()) {
+			// Calling the form objects getter
+			getAllData()
+			// Transferring data to form section 2
+			transferDataToForm2()
+			// Changing navigation component dynamicly
+			$('#formContent1').hide()
+			$('#ovalForm1').css('background-color', '')
+			$('#ovalForm2').css('background-color', '#4a90e2')
+			$('#formContent2').show()
+			$('html, body').animate({
+		    scrollTop: $("#formContent2").offset().top
+		 	}, 500);
+		} else {
+			swal("Alert!", "Please fill and check all input form", "warning")
+		}
 	})
 	
 	// On save and next form section 2
 	$('#btnNextForm2').click(() => {
-		// Calling the form object getter
-		getPaymentMethod()
-		// Combined data from section 1 with section 2
-		getCombinedData()
-		$('#formContent2').hide()
-		$('#ovalForm2').css('background-color', '')
-		$('#ovalForm3').css('background-color', '#4a90e2')
-		$('#formContent3').show()
-		window.scrollTo(0,0)
+		if (validateInputSection2()) {
+			// Calling the form object getter
+			getPaymentMethod()
+			// Combined data from section 1 with section 2
+			getCombinedData()
+			$('#formContent2').hide()
+			$('#ovalForm2').css('background-color', '')
+			$('#ovalForm3').css('background-color', '#4a90e2')
+			$('#formContent3').show()
+			$('html, body').animate({
+		    scrollTop: $("#formContent3").offset().top
+		 	}, 500);
+		} else {
+			swal("Alert!", "Please fill and check all input form", "warning")
+		}
 	})
 
 	// Click to back
@@ -426,10 +437,37 @@ getCombinedData = () => {
 	return objectCompleteFormData
 }
 
-// Input validation
-validateInput = () => {
-	console.log($('#formGeneralInfo')[0].checkValidity())
-	
+// Input validation form section 1
+validateInputSection1 = () => {
+	// Checking each form to have all fields not being empty
+	if (
+		$('#formGeneralInfo')[0].checkValidity() === true &&
+		$('#formAcademic')[0].checkValidity() === true &&
+		$('#formFinancialProvision')[0].checkValidity() === true &&
+		$('#formSupporting')[0].checkValidity() === true &&
+		$('#formAgree')[0].checkValidity() === true
+	) {
+		return true
+	} else {
+		return false
+	}
+}
+
+// Input validation form section 2
+validateInputSection2 = () => {
+	// Checking each form to have all fields not being empty
+	if (
+		$('#formGeneralInfo')[0].checkValidity() === true &&
+		$('#formAcademic')[0].checkValidity() === true &&
+		$('#formFinancialProvision')[0].checkValidity() === true &&
+		$('#formSupporting')[0].checkValidity() === true &&
+		$('#formAgree')[0].checkValidity() === true &&
+		$('#formReviewApplication')[0].checkValidity() === true
+	) {
+		return true
+	} else {
+		return false
+	}
 }
 
 // Get print form section 3
