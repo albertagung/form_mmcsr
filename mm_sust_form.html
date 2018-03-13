@@ -63,10 +63,12 @@
 					    <div class="col">
 					    	<label for="">Batch Intake</label>
 					      <input 
+					      	id="batchIntake" 
 					      	name="batchIntake" 
 					      	type="text" 
 					      	class="form-control" 
-					      	placeholder="Batch Intake">
+					      	placeholder="Batch Intake"
+					      	required>
 					    </div>
 					    <div class="col">
 					    	<label for="">Choose Admission Test Date</label>
@@ -473,7 +475,7 @@
 						<div class="row justify-content-md-center" style="padding-top: 65px">
 							<div class="col-md-12">
 								<h1>Financial Provision for Course</h1>
-								<form id="formFinancial">
+								<form id="formFinancialProvision">
 									<div class="row">
 										<div class="col">
 											<p><b>How I finance my graduate program</b></p>
@@ -485,17 +487,17 @@
 											  <input 
 											  	class="form-check-input" 
 											  	type="radio" 
-											  	name="personalFunRadio" 
-											  	id="personalFunRadio" value="Personal Funds">
+											  	name="financialProvisionRadio" 
+											  	id="personalFundRadio" value="Personal Funds">
 											  <label class="form-check-label" for="">Personal Funds</label>
 											</div>
 										</div>
 										<div class="col-md-4">
 											<div class="form-check form-check-inline">
-											  <input 
+											  <input
 											  	class="form-check-input" 
 											  	type="radio" 
-											  	name="placeEmploymentRadio" 
+											  	name="financialProvisionRadio"
 											  	id="placeEmploymentRadio" value="My place of employment is funding my education">
 											  <label class="form-check-label" for="">My place of employment is funding my education</label>
 											</div>
@@ -505,7 +507,7 @@
 											  <input 
 											  	class="form-check-input" 
 											  	type="radio" 
-											  	name="scholarshipRadio" 
+											  	name="financialProvisionRadio"
 											  	id="scholarshipRadio" value="Scholarship from other foundation or organizations">
 											  <label class="form-check-label" for="">Scholarship from other foundation or organizations</label>
 											</div>
@@ -517,8 +519,8 @@
 												<input 
 												  	class="form-check-input" 
 												  	type="radio" 
-												  	name="otherSourceRadio" 
-												  	id="otherSourceRadio" value="Others (please specify)">
+												  	name="financialProvisionRadio"
+												  	id="otherSourceRadio" value="Others">
 											  <label 
 											  	class="form-check-label" 
 											  	for="">Others (please specify)</label>
@@ -526,6 +528,7 @@
 											<div class="row">
 												<div class="col-md-4">
 													<input 
+													id="otherSourceDetail"
 											  	type="text" 
 											  	class="form-control" 
 											  	placeholder="Please specify"
@@ -546,7 +549,7 @@
 													  <input 
 													  	class="form-check-input" 
 													  	type="radio" 
-													  	name="facebookRadio" 
+													  	name="marketingSourceRadio" 
 													  	id="facebookRadio" value="Facebook">
 													  <label class="form-check-label" for="">Facebook</label>
 													</div>
@@ -556,7 +559,7 @@
 													  <input 
 													  	class="form-check-input" 
 													  	type="radio" 
-													  	name="linkedinRadio" 
+													  	name="marketingSourceRadio" 
 													  	id="linkedinRadio" value="Linkedin">
 													  <label class="form-check-label" for="">Linkedin</label>
 													</div>
@@ -566,7 +569,7 @@
 													  <input 
 													  	class="form-check-input" 
 													  	type="radio" 
-													  	name="googleSearchRadio" 
+													  	name="marketingSourceRadio" 
 													  	id="googleSearchRadio" value="Google Search">
 													  <label class="form-check-label" for="">Google Search</label>
 													</div>
@@ -576,7 +579,7 @@
 													  <input 
 													  	class="form-check-input" 
 													  	type="radio" 
-													  	name="websiteRadio" 
+													  	name="marketingSourceRadio" 
 													  	id="websiteRadio" value="Website">
 													  <label class="form-check-label" for="">Website</label>
 													</div>
@@ -586,7 +589,7 @@
 													  <input 
 													  	class="form-check-input" 
 													  	type="radio" 
-													  	name="friendRecommendationRadio" 
+													  	name="marketingSourceRadio" 
 													  	id="friendRecommendationRadio" value="Friend's Recommendation">
 													  <label class="form-check-label" for="">Friend's Recommendation</label>
 													</div>
@@ -598,7 +601,7 @@
 													  <input 
 													  	class="form-check-input" 
 													  	type="radio" 
-													  	name="otherRecommendationRadio" 
+													  	name="marketingSourceRadio" 
 													  	id="otherRecommendationRadio" value="Others (please specify)">
 													  <label class="form-check-label" for="">Others (please specify)</label>
 													</div>
@@ -607,10 +610,11 @@
 											<div class="row">
 												<div class="col-md-4">
 													<input 
-											  	type="text" 
-											  	class="form-control" 
-											  	placeholder="Please specify"
-											  	disabled>
+														id="otherRecommendation" 
+												  	type="text" 
+												  	class="form-control" 
+												  	placeholder="Please specify"
+												  	disabled>
 												</div>
 											</div>
 											<br>
@@ -668,7 +672,8 @@
 											<button 
 												id="btnNextForm1" 
 												class="btn btn-primary" 
-												style="background-color: transparent; color: black">
+												style="background-color: transparent; color: black"
+												type="submit">
 												Save and Next
 											</button>
 										</div>
@@ -692,7 +697,7 @@
 						<div class="row">
 							<div class="col">
 								<p><b>Application ID</b></p>
-								<p style="color: #4a90e2"><b>000-B21-MMS-2018</b></p>
+								<b><p style="color: #4a90e2" id="applicationId">000-B21-MMS-2018</p></b>
 							</div>
 							<div class="col">
 								<p><b>Applicant Name</b></p>
@@ -703,7 +708,7 @@
 						<div class="row">
 							<div class="col">
 								<p><b>Applying for MM-Sustainability</b></p>
-								<p>Batch 21 Intake, March 2018</p>
+								<p id="batchRegistered">Batch 21 Intake, March 2018</p>
 								<hr>
 								<div class="d-flex">
 									<p class="mr-auto">Enter Application Fee</p>
@@ -724,7 +729,7 @@
 								  <input 
 								  	class="form-check-input" 
 								  	type="radio" 
-								  	name="cashPaymentOptionRadio" 
+								  	name="paymentRadio" 
 								  	id="cashPaymentOptionRadio" 
 								  	value="Cash Payment upon admission test at MM-Sustainability Campus">
 								  <label class="form-check-label" for="">Cash Payment upon admission test at MM-Sustainability Campus</label>
@@ -737,7 +742,7 @@
 								  <input 
 								  	class="form-check-input" 
 								  	type="radio" 
-								  	name="bankTransferPaymentOptionRadio" 
+								  	name="paymentRadio" 
 								  	id="bankTransferPaymentOptionRadio" 
 								  	value="Bank Transfer">
 								  <label class="form-check-label" for="">Bank Transfer</label>
@@ -788,7 +793,9 @@
 				<div class="col-md-12 text-center">
 					<h1 style="padding-bottom: 49px">Thank you for your application</h1>
 					<h2>Application ID</h2>
-					<h2 style="color: #4a90e2; padding-bottom: 18px">000-B21-MMS-2018</h2>
+					<h2 
+						style="color: #4a90e2; padding-bottom: 18px" 
+						id="applicationIdSubmit">000-B21-MMS-2018</h2>
 					<p style="padding-bottom: 54px">Please keep this application ID as your reference</p>
 					<p style="padding-bottom: 5px">a Confirmation will be sent to your email shortly and our academics division will review this application.</p>
 					<button id="btnPrint" type="submit" class="btn btn-primary">
@@ -838,5 +845,7 @@
   <script src="http://wzrd.in/standalone/uuid%2Fv4@latest"></script>
   <!-- Form Script -->
   <script src="formScript.js"></script>
+  <!-- Date script -->
+  <script src="dateScript.js"></script>
 </body>
 </html>

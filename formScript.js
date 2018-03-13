@@ -2,23 +2,32 @@
 $(document).ready(() => {
 
 	// First load
+	$('input').prop('required', true)
 	$('#ovalForm1').css('background-color', '#4a90e2')
 	$('#formContent2').hide()
 	$('#formContent3').hide()
 
 	// On save and next form section 1
 	$('#btnNextForm1').click(() => {
-		getGeneralInformation()
-		getAcademicProfessionalQuality()
+		// Calling the form objects getter
+		getAllData()
+		// Transferring data to form section 2
+		transferDataToForm2()
+		// Changing navigation component dynamicly
+		validateInput()
 		$('#formContent1').hide()
 		$('#ovalForm1').css('background-color', '')
 		$('#ovalForm2').css('background-color', '#4a90e2')
 		$('#formContent2').show()
 		window.scrollTo(0,0)
 	})
-
+	
 	// On save and next form section 2
 	$('#btnNextForm2').click(() => {
+		// Calling the form object getter
+		getPaymentMethod()
+		// Combined data from section 1 with section 2
+		getCombinedData()
 		$('#formContent2').hide()
 		$('#ovalForm2').css('background-color', '')
 		$('#ovalForm3').css('background-color', '#4a90e2')
@@ -137,37 +146,70 @@ $(document).ready(() => {
 		)
 	})
 
-	// Un-disabled obtained score options
-	// IELTS Radio
-	$('#ieltsRadioYes').click(() => {
-		$('#scoreIelts').attr('disabled', false)
-	})
-	$('#ieltsRadioNo').click(() => {
-		$('#scoreIelts').attr('disabled', true)
-	})
-	// TOEFL Radio
-	$('#toeflRadioYes').click(() => {
-		$('#scoreToefl').attr('disabled', false)
-	})
-	$('#toeflRadioNo').click(() => {
-		$('#scoreToefl').attr('disabled', true)
-	})
-	// TPA Radio
-	$('#tpaRadioYes').click(() => {
-		$('#scoreTpa').attr('disabled', false)
-	})
-	$('#tpaRadioNo').click(() => {
-		$('#scoreTpa').attr('disabled', true)
-	})
-
-
 	window.setTimeout(() => {
-		console.log($('input[name="ieltsRadio"]:checked').val())
+		// console.log($('input[name="ieltsRadio"]:checked').val())
 	}, 5000)
 
 })
 
-// Form input script
+// Get data form section 1
+
+// Un-disabled obtained score options
+// IELTS Radio
+$('#ieltsRadioYes').click(() => {
+	$('#scoreIelts').attr('disabled', false)
+})
+$('#ieltsRadioNo').click(() => {
+	$('#scoreIelts').attr('disabled', true)
+})
+// TOEFL Radio
+$('#toeflRadioYes').click(() => {
+	$('#scoreToefl').attr('disabled', false)
+})
+$('#toeflRadioNo').click(() => {
+	$('#scoreToefl').attr('disabled', true)
+})
+// TPA Radio
+$('#tpaRadioYes').click(() => {
+	$('#scoreTpa').attr('disabled', false)
+})
+$('#tpaRadioNo').click(() => {
+	$('#scoreTpa').attr('disabled', true)
+})
+
+// Un-disabled other income source radio
+$('#otherSourceRadio').click(() => {
+	$('#otherSourceDetail').attr('disabled', false)
+})
+$('#personalFundRadio').click(() => {
+	$('#otherSourceDetail').attr('disabled', true)
+})
+$('#placeEmploymentRadio').click(() => {
+	$('#otherSourceDetail').attr('disabled', true)
+})
+$('#scholarshipRadio').click(() => {
+	$('#otherSourceDetail').attr('disabled', true)
+})
+
+// Un-disabled other marketing source radio
+$('#otherRecommendationRadio').click(() => {
+	$('#otherRecommendation').attr('disabled', false)
+})
+$('#facebookRadio').click(() => {
+	$('#otherRecommendation').attr('disabled', true)
+})
+$('#linkedinRadio').click(() => {
+	$('#otherRecommendation').attr('disabled', true)
+})
+$('#googleSearchRadio').click(() => {
+	$('#otherRecommendation').attr('disabled', true)
+})
+$('#websiteRadio').click(() => {
+	$('#otherRecommendation').attr('disabled', true)
+})
+$('#friendRecommendationRadio').click(() => {
+	$('#otherRecommendation').attr('disabled', true)
+})
 
 // Get General Info Form
 getGeneralInformation = () => {
@@ -216,7 +258,7 @@ getGeneralInformation = () => {
 	}
 
 	// Get the object
-	console.log(generalInformationObject)
+	return generalInformationObject
 
 }
 
@@ -252,11 +294,6 @@ getAcademicProfessionalQuality = () => {
 	let elUniversityName = $('.universityName')
 	let elUniversityStartYear = $('.universityStartYear')
 	let elUniversityEndYear = $('.universityEndYear')
-	// let majors = []
-	// let degrees = []
-	// let universityNames = []
-	// let universityStartYears = []
-	// let universityEndYears = []
 	let universities = []
 	for (let i = 0; i < elDegree.length; i++) {
 		let universityObj = {
@@ -267,22 +304,10 @@ getAcademicProfessionalQuality = () => {
 			degree: $(`#${elDegree[i].id}`).val()
 		}
 		universities.push(universityObj)
-		// let valDegree = $(`#${elDegree[i].id}`).val()
-		// let valMajor = $(`#${elMajor[i].id}`).val()
-		// let valUniversityName = $(`#${elUniversityName[i].id}`).val()
-		// let valUniversityStartYear = $(`#${elUniversityStartYear[i].id}`).val()
-		// let valUniversityEndYear = $(`#${elUniversityEndYear[i].id}`).val()
-		// majors.push(valMajor)
-		// degrees.push(valDegree)
-		// universityNames.push(valUniversityName)
-		// universityStartYears.push(valUniversityStartYear)
-		// universityEndYears.push(valUniversityEndYear)
 	}
 	// Get all qualifications submission
 	let elCourse = $('.course')
 	let elCourseDetails = $('.courseDetail')
-	// let courses = []
-	// let courseDetails = []
 	let qualifications = []
 	for (let i = 0; i < elCourse.length; i++) {
 		let qualificationsObj = {
@@ -290,10 +315,6 @@ getAcademicProfessionalQuality = () => {
 			courseDetail: $(`#${elCourseDetails[i].id}`).val()
 		}
 		qualifications.push(qualificationsObj)
-		// let valCourseDetails = $(`#${elCourseDetails[i].id}`).val()
-		// let valCourse = $(`#${elCourse[i].id}`).val()
-		// courses.push(valCourse)
-		// courseDetails.push(valCourseDetails)
 	}
 
 
@@ -310,16 +331,108 @@ getAcademicProfessionalQuality = () => {
 		ielts: ieltsRadio,
 		toefl: toeflRadio,
 		tpa: tpaRadio
-		// universityNames: universityName,
-		// universityStartYears: universityStartYear,
-		// universityEndYears: universityEndYear,
-		// universityMajors: majors,
-		// universityDegrees: degrees,
-		// courses: courses,
-		// courseDetails: courseDetails
 	}
 
 	// Get the object
-	console.log(academicProfessionalQualityObj)
+	return academicProfessionalQualityObj
 
 }
+
+// Get Financial Provision Form
+getFinancialProvisionForm = () => {
+
+	// Declaring
+	let financialSource = {
+		answer: $('input[name="financialProvisionRadio"]:checked').val(),
+		detail: $('#otherSourceDetail').val() || 'none'
+	}
+
+	// Get the object
+	return financialSource
+
+}
+
+// Get supporting form
+getSupportingForm = () => {
+
+	// Declaring
+	let marketingSource = {
+		answer: $('input[name="marketingSourceRadio"]:checked').val(),
+		detail: $('#otherRecommendation').val() || 'none'
+	}
+	let personalFactor = $('#personalFactorTextArea').val()
+
+	// Create the object
+	let supportingInformation = {
+		marketingSource: marketingSource,
+		personalFactor: personalFactor
+	}
+
+	// Get the object
+	return supportingInformation
+
+}
+
+
+getAllData = () => {
+	let dateNow = new Date()
+	let dataForm1 = {
+		applicationId: `MMSUST/${uuidv4()}/${dateNow.getDate()}${dateNow.getMonth()+1}${dateNow.getFullYear()}`,
+		generalInformation: getGeneralInformation(),
+		academicQualification: getAcademicProfessionalQuality(),
+		financialProvision: getFinancialProvisionForm(),
+		supportingInformation: getSupportingForm()
+	}
+	return dataForm1
+
+}
+
+// Transfer data to form section 2
+
+// Hide bank details component
+$('#bankDetailsComponent').hide()
+
+// Show bank details component on click
+$('#bankTransferPaymentOptionRadio').click(() => {
+	$('#bankDetailsComponent').show()
+})
+$('#cashPaymentOptionRadio').click(() => {
+	$('#bankDetailsComponent').hide()
+})
+
+// Get data from form section 1
+transferDataToForm2 = async () => {
+	let dataForm1 = getAllData()
+	// Transfer application id
+	await $('#applicationId').text(dataForm1.applicationId)
+	// Transfer batch registered
+	await $('#batchRegistered').text(dataForm1.generalInformation.batchIntake)
+	// Transfer application id to form section 3
+	$('#applicationIdSubmit').text(dataForm1.applicationId)
+}
+
+// Get data form section 2
+getPaymentMethod = () => {
+	return $('input[name="paymentRadio"]:checked').val()
+}
+
+// Combining data from section 1 with section 2
+getCombinedData = () => {
+	let objPaymentMethod = {
+		paymentMethod: getPaymentMethod()
+	}
+	let objectCompleteFormData = Object.assign(getAllData(), objPaymentMethod)
+	console.log(objectCompleteFormData)
+	return objectCompleteFormData
+}
+
+// Input validation
+validateInput = () => {
+	console.log($('#formGeneralInfo')[0].checkValidity())
+	
+}
+
+// Get print form section 3
+$('#btnPrint').click(() => {
+	window.print()
+})
