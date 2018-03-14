@@ -29,11 +29,13 @@ $(document).ready(() => {
 	
 	// On save and next form section 2
 	$('#btnNextForm2').click(() => {
-		if (validateInputSection2()) {
+		// if (validateInputSection2()) {
 			// Calling the form object getter
 			getPaymentMethod()
 			// Combined data from section 1 with section 2
 			getCombinedData()
+			// Post form data to database
+			sendToDatabase()
 			$('#formContent2').hide()
 			$('#ovalForm2').css('background-color', '')
 			$('#ovalForm3').css('background-color', '#4a90e2')
@@ -41,9 +43,9 @@ $(document).ready(() => {
 			$('html, body').animate({
 		    scrollTop: $("#formContent3").offset().top
 		 	}, 500);
-		} else {
-			swal("Alert!", "Please fill and check all input form", "warning")
-		}
+		// } else {
+		// 	swal("Alert!", "Please fill and check all input form", "warning")
+		// }
 	})
 
 	// Click to back
@@ -246,6 +248,7 @@ getGeneralInformation = () => {
 	let city = generalInformation.find('input[name="city"]').val()
 	let country = generalInformation.find('input[name="country"]').val()
 	let typeOfIdentity = generalInformation.find('input[name="typeOfIdentity"]').val()
+	let identityNumber = generalInformation.find('input[name="identityNumber"]').val()
 	let maritalStatus = generalInformation.find('input[name="maritalStatus"]').val()
 	let phoneNumber = generalInformation.find('input[name="phoneNumber"]').val()
 	let emailAddress = generalInformation.find('input[name="emailAddress"]').val()
@@ -262,6 +265,7 @@ getGeneralInformation = () => {
 		city: city,
 		country: country,
 		typeOfIdentity: typeOfIdentity,
+		identityNumber: identityNumber,
 		maritalStatus: maritalStatus,
 		phoneNumber: phoneNumber,
 		emailAddress: emailAddress,
@@ -288,16 +292,16 @@ getAcademicProfessionalQuality = () => {
 	let universityEndYear = $('#universityEndYear').val()
 	// Checking radio button
 	let ieltsRadio = {
-		answer: $('input[name="ieltsRadio"]:checked').val(),
-		score: $('#scoreIelts').val() || 0
+		answerIelts: $('input[name="ieltsRadio"]:checked').val() || 'none',
+		scoreIelts: $('#scoreIelts').val() || 0
 	}
 	let toeflRadio = {
-		answer: $('input[name="toeflRadio"]:checked').val(),
-		score: $('#scoreToefl').val() || 0
+		answerToefl: $('input[name="toeflRadio"]:checked').val() || 'none',
+		scoreToefl: $('#scoreToefl').val() || 0
 	}
 	let tpaRadio = {
-		answer: $('input[name="tpaRadio"]:checked').val(),
-		score: $('#scoreTpa').val() || 0
+		answerTpa: $('input[name="tpaRadio"]:checked').val() || 'none',
+		scoreTpa: $('#scoreTpa').val() || 0
 	}
 	// Get all universities submission
 	let elDegree = $('.degree')
@@ -354,8 +358,8 @@ getFinancialProvisionForm = () => {
 
 	// Declaring
 	let financialSource = {
-		answer: $('input[name="financialProvisionRadio"]:checked').val(),
-		detail: $('#otherSourceDetail').val() || 'none'
+		answerFinancialProvision: $('input[name="financialProvisionRadio"]:checked').val(),
+		detailFinancialProvision: $('#otherSourceDetail').val() || 'none'
 	}
 
 	// Get the object
@@ -368,8 +372,8 @@ getSupportingForm = () => {
 
 	// Declaring
 	let marketingSource = {
-		answer: $('input[name="marketingSourceRadio"]:checked').val(),
-		detail: $('#otherRecommendation').val() || 'none'
+		answerMarketingSource: $('input[name="marketingSourceRadio"]:checked').val(),
+		detailMarketingSource: $('#otherRecommendation').val() || 'none'
 	}
 	let personalFactor = $('#personalFactorTextArea').val()
 
@@ -468,6 +472,21 @@ validateInputSection2 = () => {
 	} else {
 		return false
 	}
+}
+
+// Send data to database
+sendToDatabase = () => {
+	let objectCompleteFormData = getCombinedData()
+	let applicationApi = 'http://localhost:3000/applications'
+	axios.post(applicationApi, {
+		objectCompleteFormData
+	})
+	.then((response) => {
+		console.log('done', response.data)
+	})
+	.catch((err) => {
+		console.log(err)
+	})
 }
 
 // Get print form section 3
