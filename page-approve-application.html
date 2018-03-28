@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Form</title>
+ 	<!-- Bootstrap CSS -->
+  <link 
+  	rel="stylesheet" 
+  	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" 
+  	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" 
+  	crossorigin="anonymous">
+	<!-- Custom CSS -->
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	
+	<!-- Navbar Section -->
+	<section id="navbar">
+		<nav class="navbar navbar-light bg-light">
+	  	<a class="navbar-brand" href="#">
+		    <img 
+		    	src="/assets/img/180220_MM_Sust_logo_dark_for_website-01.png" alt="">
+		  </a>
+		</nav>
+	</section>
+
+	<!-- Content section -->
+	<section id="content">
+		<div class="container-fluid">
+			<div class="row justify-content-md-center">
+				<h1>Application List</h1>
+				<div class="container">
+					<table class="table">
+					  <thead style="color: white; font-weight: bold">
+					    <tr>
+					    	<th scope="col">#</th>
+					      <th scope="col">Application ID</th>
+					      <th scope="col"></th>
+					      <th scope="col">Application Date</th>
+					      <th scope="col">Action</th>
+					    </tr>
+					  </thead>
+					  <tbody id="applicationList" style="color: white">
+					  </tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Footer Section -->
+	<section id="footer">
+		<div class="container-fluid">
+			<div class="d-flex">
+				<p class="mr-auto">
+					Got Questions? Visit our Help Center or Call 021-57930117 for assistance
+				</p>
+				<p class="ml-auto">
+					COPYRIGHT© 2018 – CECT TRISAKTI UNIVERSITY
+				</p>
+			</div>
+			<div class="d-flex">
+				<p class="ml-auto">Site powered by <b>Cloudxier</b></p>
+			</div>
+		</div>
+	</section>
+
+
+ 	<!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script 
+  	src="https://code.jquery.com/jquery-3.2.1.slim.min.js" 
+  	integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" 
+  	crossorigin="anonymous"></script>
+  <script 
+  	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" 
+  	integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" 
+  	crossorigin="anonymous"></script>
+  <script 
+  	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" 
+  	integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" 
+  	crossorigin="anonymous"></script>
+  <!-- AXIOS -->
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <!-- Link guard script -->
+	<!-- <script src="/function_js/pageCheck.js"></script> -->
+	<!-- Sweet Alert -->
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <!-- Script page approve application -->
+  <script src="/function_js/pageApproveApplication.js"></script>
+</body>
+</html>
