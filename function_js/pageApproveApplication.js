@@ -39,37 +39,120 @@ $(document).ready(() => {
 				        </button>
 				      </div>
 				      <div class="modal-body">
-				        <div class="row justify-content-md-center">
-									<div id="applicationDetails" class="col-md-12 text-center">
+				        <div class="row">
+									<div id="applicationDetails" class="col-md-12">
 										<p>Applicant ID: <strong>${dataApplications.applicationId}</strong></p>
 										<p>Applicant Name: <strong>${dataApplications.applicantName}</strong></p>
 										<p>Applicant Email Address: <strong>${dataApplications.generalInformation.emailAddress}</strong></p>
 										<p>Applicant Phone Number: <strong>${dataApplications.generalInformation.phoneNumber}</strong></p>
-										<p>Date Applied: <strong>XXXXXXX</strong></p>
+										<p>Date Applied: <strong>${new Date(dataApplications.createdAt)}</strong></p>
+										<p>Status: <strong>${dataApplications.status}</strong></p>
 									</div>
 								</div>
 				      </div>
 				      <div class="modal-footer">
-				        <button type="button" class="btn btn-danger">Delete</button>
-				        <button type="button" class="btn btn-success">Approve</button>
+				        <button type="button" class="btn btn-danger" id="btnDelete${index+1}">Delete</button>
+				        <button type="button" class="btn btn-success" id="btnApprove${index+1}">Approve</button>
 				      </div>
 				    </div>
 				  </div>
 				</div>
 			`)
-		})
-	})
 
-	// Load application details
+			// When button approve clicked
+			$(`#btnApprove${index+1}`).click((e) => {
+				e.preventDefault()
+				// Bring confirmation
+				// Define edit application url
+				const urlEditApplication = `http://localhost:3000/applications/edit/${dataApplications.applicationId}`
+				// Update the application status
+				axios.put(urlEditApplication, {
+					applicationId: dataApplications.applicationId,
+					applicantName: dataApplications.applicantName,
+			  	generalInformation: {
+			  		emailAddress: dataApplications.generalInformation.emailAddress,
+			  		batchIntake: dataApplications.generalInformation.batchIntake,
+			  		country: dataApplications.generalInformation.country,
+			  		city: dataApplications.generalInformation.city,
+			  		address: dataApplications.generalInformation.address,
+			  		postalCode: dataApplications.generalInformation.postalCode,
+			  		province: dataApplications.generalInformation.province,
+			  		phoneNumber: dataApplications.generalInformation.phoneNumber,
+			  		typeOfIdentity: dataApplications.generalInformation.typeOfIdentity,
+			  		identityNumber: dataApplications.generalInformation.identityNumber,
+			  		admissionTestDate: {
+			  			dayAdmission: dataApplications.generalInformation.admissionTestDate.dayAdmission,
+			  			monthAdmission: dataApplications.generalInformation.admissionTestDate.monthAdmission,
+			  			yearAdmission: dataApplications.generalInformation.admissionTestDate.yearAdmission
+			  		},
+			  		dateOfBirth: {
+			  			dayOfBirth: dataApplications.generalInformation.dateOfBirth.dayOfBirth,
+			  			monthOfBirth: dataApplications.generalInformation.dateOfBirth.monthOfBirth,
+			  			yearOfBirth: dataApplications.generalInformation.dateOfBirth.yearOfBirth
+			  		},
+			  		maritalStatus: dataApplications.generalInformation.maritalStatus,
+			  		religion: dataApplications.generalInformation.religion
+			  	},
+			  	academicQualification: {
+			  		juniorHighSchoolName: dataApplications.academicQualification.juniorHighSchoolName,
+			  		juniorHighSchoolStartYear: dataApplications.academicQualification.juniorHighSchoolStartYear,
+			  		juniorHighSchoolEndYear: dataApplications.academicQualification.juniorHighSchoolEndYear,
+			  		seniorHighSchoolName: dataApplications.academicQualification.seniorHighSchoolName,
+			  		seniorHighSchoolStartYear: dataApplications.academicQualification.seniorHighSchoolStartYear,
+			  		seniorHighSchoolEndYear: dataApplications.academicQualification.seniorHighSchoolEndYear,
+			  		universities: [{
+			  			universityName: dataApplications.academicQualification.universities.universityName,
+				  		universityStartYear: dataApplications.academicQualification.universities.universityStartYear,
+				  		universityEndYear: dataApplications.academicQualification.universities.universityEndYear,
+				  		major: dataApplications.academicQualification.universities.major,
+				  		degree: dataApplications.academicQualification.universities.degree
+			  		}],
+			  		ielts: {
+			  			answerIelts: dataApplications.academicQualification.ielts.answerIelts,
+			  			scoreIelts: dataApplications.academicQualification.ielts.scoreIelts
+			  		},
+			  		toefl: {
+			  			answerToefl: dataApplications.academicQualification.toefl.answerToefl,
+			  			scoreToefl: dataApplications.academicQualification.toefl.scoreToefl
+			  		},
+			  		tpa: {
+			  			answerTpa: dataApplications.academicQualification.tpa.answerTpa,
+			  			scoreTpa: dataApplications.academicQualification.tpa.scoreTpa
+			  		},
+			  		qualifications: [{
+			  			course: dataApplications.academicQualification.qualifications.course,
+			  			courseDetail: dataApplications.academicQualification.qualifications.courseDetail
+			  		}]
+			  	},
+			  	financialProvision: {
+			  		answerFinancialProvision: dataApplications.financialProvision.answerFinancialProvision,
+			  		detailFinancialProvision: dataApplications.financialProvision.detailFinancialProvision
+			  	},
+			  	supportingInformation: {
+			  		marketingSource: {
+			  			answerMarketingSource: dataApplications.supportingInformation.marketingSource.answerMarketingSource,
+			  			detailMarketingSource: dataApplications.supportingInformation.marketingSource.detailMarketingSource
+			  		},
+			  		personalFactor: dataApplications.supportingInformation.personalFactor
+			  	},
+			  	paymentMethod: dataApplications.paymentMethod,
+			    createdAt: dataApplications.createdAt,
+			    status: 'APPROVED'
+				}).then((response) => {
+					swal("Approved", "This application has been approved", "success")
+					.then(() => {
+						// Define url for sending approved email
+						const urlApprovedEmail = 'http://localhost:3000/emailTemplate/emailApproved'
+						// Send email trigger to server
+						axios.post(urlApprovedEmail, dataApplications)
+						.then((responseEmail) => {
+							console.log(responseEmail.data)
+							window.location.replace('page-approve-application.html')
+						})
+					})
+				})
+			})
 
-
-	// When button yes clicked
-	$('#btnYes').click((e) => {
-		e.preventDefault()
-		// Bring confirmation
-		swal("Approved", "This application has been approved", "success")
-		.then(() => {
-			// Send email trigger to server
 		})
 	})
 
