@@ -20,7 +20,12 @@ $(document).ready(() => {
 		// Send login data to server for auth
 		axios.post(authUrl, getCredentials())
 		.then((response) => {
-			window.location.replace('profile-settings.html')
+			console.log(response.data)
+			if (response.data === 'inquiries@mmsustainability.ac.id') {
+				window.location.replace('page-approve-application.html')
+			} else {
+				window.location.replace('profile-settings.html')
+			}
 		})
 		.catch((err) => {
 			$('.main-container .container').prepend(`
