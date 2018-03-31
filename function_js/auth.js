@@ -1,7 +1,7 @@
 $(document).ready(() => {
 
 	// Define auth url
-	const authUrl = 'https://server.mmsustainability.ac.id/auth'
+	const authUrl = 'http://localhost:3000/auth'
 
 	// Get email and pass for login
 	getCredentials = () => {

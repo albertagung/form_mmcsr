@@ -1,7 +1,7 @@
 $(document).ready(() => {
 
 	// Define application getter url
-	const urlGetApplications = 'https://server.mmsustainability.ac.id/applications'
+	const urlGetApplications = 'http://localhost:3000/applications'
 
 	// Load all applications
 	axios.get(urlGetApplications).then((response) => {
@@ -64,7 +64,7 @@ $(document).ready(() => {
 				e.preventDefault()
 				// Bring confirmation
 				// Define edit application url
-				const urlEditApplication = `https://server.mmsustainability.ac.id/applications/edit/${dataApplications.applicationId}`
+				const urlEditApplication = `http://localhost:3000/applications/edit/${dataApplications.applicationId}`
 				// Update the application status
 				axios.put(urlEditApplication, {
 					applicationId: dataApplications.applicationId,
@@ -142,7 +142,7 @@ $(document).ready(() => {
 					swal("Approved", "This application has been approved", "success")
 					.then(() => {
 						// Define url for sending approved email
-						const urlApprovedEmail = 'https://server.mmsustainability.ac.id/emailTemplate/emailApproved'
+						const urlApprovedEmail = 'http://localhost:3000/emailTemplate/emailApproved'
 						// Send email trigger to server
 						axios.post(urlApprovedEmail, dataApplications)
 						.then((responseEmail) => {
