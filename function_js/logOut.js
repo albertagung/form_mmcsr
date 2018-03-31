@@ -1,7 +1,7 @@
 $(document).ready(() => {
 
 	// Define sign out url
-	const urlSignOut = 'http://localhost:3000/auth/signOut'
+	const urlSignOut = 'https://server.mmsustainability.ac.id/auth/signOut'
 
 	// When button log out pressed
 	$('#btnLogOut').click( async (e) => {
