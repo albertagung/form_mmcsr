@@ -38,7 +38,7 @@ $(document).ready(() => {
 	
 	// On save and next form section 2
 	$('#btnNextForm2').click( async () => {
-		// if (validateInputSection2()) {
+		if (validateInputSection2()) {
 			// Calling the form object getter
 			await getPaymentMethod()
 			// Combined data from section 1 with section 2
@@ -52,13 +52,14 @@ $(document).ready(() => {
 			$('html, body').animate({
 		    scrollTop: $("#formContent3").offset().top
 		 	}, 500);
-		// } else {
-		// 	swal("Alert!", "Please fill and check all input form", "warning")
-		// }
+		} else {
+			swal("Alert!", "Please fill and check all input form", "warning")
+		}
 	})
 
 	// Click to back
-	$('#ovalForm1').click(() => {
+	$('#btnBackForm2').click(() => {
+		e.preventDefault()
 		$('#formContent2').hide()
 		$('#ovalForm2').css('background-color', '')
 		$('#formContent3').hide()
@@ -67,22 +68,14 @@ $(document).ready(() => {
 		$('#ovalForm1').css('background-color', '#4a90e2')
 	})
 
-	$('#ovalForm2').click(() => {
+	$('#btnBackForm3').click(() => {
+		e.preventDefault()
 		$('#formContent1').hide()
 		$('#ovalForm1').css('background-color', '')
 		$('#formContent3').hide()
 		$('#ovalForm3').css('background-color', '')
 		$('#formContent2').show()
 		$('#ovalForm2').css('background-color', '#4a90e2')
-	})
-
-	$('#ovalForm3').click(() => {
-		$('#formContent1').hide()
-		$('#ovalForm1').css('background-color', '')
-		$('#formContent2').hide()
-		$('#ovalForm2').css('background-color', '')
-		$('#formContent3').show()
-		$('#ovalForm3').css('background-color', '#4a90e2')
 	})
 
 	// Adding more major and concentration input

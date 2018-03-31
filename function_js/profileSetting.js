@@ -54,6 +54,18 @@ $(document).ready(() => {
 				// Stop loading when finished
 				$('body').loading('stop')
 			}
+
+			// Populate application status
+			if (dataUsers.status === "APPROVED") {
+				$('#applicationStatus').html(`
+					<span class="badge badge-success">APPROVED</span>
+				`)
+			} else {
+				$('#applicationStatus').html(`
+					<span class="badge badge-secondary">UN-APPROVED</span>
+				`)
+			}
+
 		})
 	}, 2000)
 
