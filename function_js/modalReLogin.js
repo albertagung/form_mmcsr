@@ -27,7 +27,10 @@ $(document).ready(() => {
 
 	// Re login change email and profile
 	$('#btnReLogin').click((e) => {
+		console.log('masuk')
 		e.preventDefault()
+		// Loading overlay start
+		$('.modal-container').loading('start')
 		// Send login data to auth database
 		axios.post(authUrl, getCredentials())
 		.then((response) => {
@@ -51,11 +54,17 @@ $(document).ready(() => {
 			const urlChangeEmail = `http://localhost:3000/auth/changeEmail/`
 			axios.post(urlChangeEmail, userObj)
 			.then((response) => {
-				console.log(response.data)
-				window.location.replace('page-login.html')
+				// Loading overlay stop
+				$('.modal-container').loading('stop')
+				swal("Success", "Please re-login with your new credentials", "sucess")
+				.then(() => {
+					window.location.replace('page-login.html')
+				})
 			})
 		})
 		.catch((err) => {
+			// Loading overlay stop
+			$('.modal-container').loading('stop')
 			$('.modal-content .form').prepend(`
 				<div 
 					class="alert alert-danger" 
@@ -73,11 +82,16 @@ $(document).ready(() => {
 		e.preventDefault()
 		let newPassword = $('#password').val()
 		let newRetypePassword = $('#retypePassword').val()
-		if (newPassword === newRetypePassword && newPassword !== '') {
+		if (newPassword === newRetypePassword 
+				&& newPassword !== ''
+				&& newPassword.split('').length >= 6
+			) {
 			// Show modal container
 			$('.modal-container').show()
 			$('#btnReLoginPassword').click((e) => {
 				e.preventDefault()
+				// Loading overlay start
+				$('.modal-container').loading('start')
 				// Send login data to auth database
 				axios.post(authUrl, getCredentialsForPassword())
 				.then((response) => {
@@ -87,11 +101,17 @@ $(document).ready(() => {
 						password: newRetypePassword
 					})
 					.then((response) => {
-						console.log(response.data)
-						window.location.replace('page-login.html')
+						// Loading overlay stop
+						$('.modal-container').loading('stop')
+						swal("Success", "Please re-login with your new credentials", "success")
+						.then(() => {
+							window.location.replace('page-login.html')
+						})
 					})
 				})
 				.catch((err) => {
+					// Loading overlay stop
+					$('.modal-container').loading('stop')
 					$('.modal-content .form').prepend(`
 						<div 
 							class="alert alert-danger" 
@@ -101,10 +121,18 @@ $(document).ready(() => {
 					`)
 				})
 			})
+		} else if (newPassword.split('').length < 6 && newPassword === newRetypePassword) {
+			// Hide modal container
+			$('.modal-container').hide()
+			// Loading overlay stop
+			$('.modal-container').loading('stop')
+			swal("Alert", "Minimum password are 6 characters or more", "warning")
 		} else {
 			// Hide modal container
 			$('.modal-container').hide()
-			swal("Alert", "Your password did not match", "warning")
+			// Loading overlay stop
+			$('.modal-container').loading('stop')
+			swal("Alert", "Your password did not match!", "warning")
 		}
 	})
 

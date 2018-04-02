@@ -11,13 +11,19 @@ $(document).ready(() => {
 	}
 
 	// First load
+	// Loading overlay start
+	$('body').loading('start')
 	$('input').prop('required', true)
 	$('#ovalForm1').css('background-color', '#4a90e2')
 	$('#formContent2').hide()
 	$('#formContent3').hide()
+	// Loading overlay stop
+	$('body').loading('stop')
 
 	// On save and next form section 1
 	$('#btnNextForm1').click(() => {
+		// Loading overlay start
+		$('body').loading('start')
 		if (validateInputSection1()) {
 			// Calling the form objects getter
 			getAllData()
@@ -30,14 +36,20 @@ $(document).ready(() => {
 			$('#formContent2').show()
 			$('html, body').animate({
 		    scrollTop: $("#formContent2").offset().top
-		 	}, 500);
+		 	}, 500)
+		 	// Loading overlay stop
+			$('body').loading('stop');
 		} else {
 			swal("Alert!", "Please fill and check all input form", "warning")
+			// Loading overlay stop
+			$('body').loading('stop')
 		}
 	})
 	
 	// On save and next form section 2
 	$('#btnNextForm2').click( async () => {
+		// Loading overlay start
+		$('body').loading('start')
 		if (validateInputSection2()) {
 			// Calling the form object getter
 			await getPaymentMethod()
@@ -51,14 +63,18 @@ $(document).ready(() => {
 			$('#formContent3').show()
 			$('html, body').animate({
 		    scrollTop: $("#formContent3").offset().top
-		 	}, 500);
+		 	}, 500)
+		 	// Loading overlay stop
+			$('body').loading('stop')
 		} else {
 			swal("Alert!", "Please fill and check all input form", "warning")
+			// Loading overlay stop
+			$('body').loading('stop')
 		}
 	})
 
 	// Click to back
-	$('#btnBackForm2').click(() => {
+	$('#btnBackForm2').click((e) => {
 		e.preventDefault()
 		$('#formContent2').hide()
 		$('#ovalForm2').css('background-color', '')
@@ -68,7 +84,7 @@ $(document).ready(() => {
 		$('#ovalForm1').css('background-color', '#4a90e2')
 	})
 
-	$('#btnBackForm3').click(() => {
+	$('#btnBackForm3').click((e) => {
 		e.preventDefault()
 		$('#formContent1').hide()
 		$('#ovalForm1').css('background-color', '')
@@ -92,7 +108,7 @@ $(document).ready(() => {
 				<div class="col-md-8">
 					<label for="">University Name</label>
 	    		<input 
-	    			id="${randomId}" 
+	    			id="${randomId}UniversityName" 
 	    			type="text" 
 	    			class="form-control universityName" 
 	    			placeholder="University Name">
@@ -100,7 +116,7 @@ $(document).ready(() => {
 				<div class="col-md-2">
 					<label for="">From</label>
 	    		<input 
-	    			id="${randomId}"
+	    			id="${randomId}UniversityStartYear"
 	    			type="text" 
 	    			class="form-control universityStartYear" 
 	    			placeholder="From">
@@ -108,7 +124,7 @@ $(document).ready(() => {
 				<div class="col-md-2">
 					<label for="">To</label>
 	    		<input 
-	    			id="${randomId}"
+	    			id="${randomId}UniversityEndYear"
 	    			type="text" 
 	    			class="form-control universityEndYear" 
 	    			placeholder="To">
@@ -119,7 +135,7 @@ $(document).ready(() => {
 				<div class="col-md-4">
 					<label for="">Degree</label>
 	    		<input 
-	    			id="${randomId}"
+	    			id="${randomId}UniversityDegree"
 	    			name="degree" 
 	    			type="text" 
 	    			class="form-control degree" 
@@ -128,7 +144,7 @@ $(document).ready(() => {
 				<div class="col-md-4">
 					<label for="">Major / Concetration</label>
 	    		<input
-	    			id="${randomId}"
+	    			id="${randomId}UniversityMajor"
 	    			name="major" 
 	    			type="text" 
 	    			class="form-control major" 
@@ -152,7 +168,7 @@ $(document).ready(() => {
 				<div class="col-md-4">
 					<label for="">Course</label>
 					<input 
-						id="${randomId}"
+						id="${randomId}CourseQualification"
 						name="courseQualification"
 						type="text"
 						class="form-control course"
@@ -161,7 +177,7 @@ $(document).ready(() => {
 				<div class="col-md-8">
 					<label for="">Course Details</label>
 					<input 
-						id="${randomId}"
+						id="${randomId}DetailQualification"
 						name="detailQualification"
 						type="text"
 						class="form-control courseDetail"
@@ -279,12 +295,12 @@ getGeneralInformation = () => {
 	let province = generalInformation.find('input[name="province"]').val()
 	let city = generalInformation.find('input[name="city"]').val()
 	let country = generalInformation.find('input[name="country"]').val()
-	let typeOfIdentity = generalInformation.find('input[name="typeOfIdentity"]').val()
+	let typeOfIdentity = generalInformation.find('select[name="typeOfIdentity"]').val()
 	let identityNumber = generalInformation.find('input[name="identityNumber"]').val()
-	let maritalStatus = generalInformation.find('input[name="maritalStatus"]').val()
+	let maritalStatus = generalInformation.find('select[name="maritalStatus"]').val()
 	let phoneNumber = generalInformation.find('input[name="phoneNumber"]').val()
 	let emailAddress = applicantObj.email || generalInformation.find('input[name="emailAddress"]').val()
-	let religion = generalInformation.find('input[name="religion"]').val()
+	let religion = generalInformation.find('select[name="religion"]').val()
 
 	// Creating data object
 	let generalInformationObject = {
@@ -462,8 +478,10 @@ $('#cashPaymentOptionRadio').click(() => {
 
 // Get data from form section 1
 transferDataToForm2 = async () => {
-	let dataForm1 = getAllData()
+	// Set localStorage for dataForm1
+	localStorage.setItem('dataForm1', JSON.stringify(getAllData()))
 	// Transfer application id
+	let dataForm1 = JSON.parse(localStorage.getItem('dataForm1'))
 	await $('#applicationId').text(dataForm1.applicationId)
 	// Transfer batch registered
 	await $('#batchRegistered').text(dataForm1.generalInformation.batchIntake)
@@ -482,6 +500,8 @@ getPaymentMethod = () => {
 
 // Combining data from section 1 with section 2
 getCombinedData = () => {
+	// Get dataForm1
+	let dataForm1 = JSON.parse(localStorage.getItem('dataForm1'))
 	// Get applicant name
 	let applicantObj = JSON.parse(localStorage.getItem('dataUsers'))[0]
 	let applicantName = `${applicantObj.firstName} ${applicantObj.lastName}`
@@ -489,7 +509,7 @@ getCombinedData = () => {
 		applicantName: applicantName, 
 		paymentMethod: getPaymentMethod()
 	}
-	let objectCompleteFormData = Object.assign(getAllData(), objAddedData)
+	let objectCompleteFormData = Object.assign(dataForm1, objAddedData)
 	console.log(objectCompleteFormData)
 	// Save the form data to localStorage
 	return localStorage.setItem('dataForm', JSON.stringify(objectCompleteFormData))

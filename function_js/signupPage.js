@@ -31,6 +31,8 @@ $(document).ready(() => {
 
 	// Sign up user
 	$('#btnSignUp').click((e) => {
+		// Loading overlay start
+		$('body').loading('start')
 		e.preventDefault()
 		// Send signup data to server
 		axios.post(signUpUrl, getDataUser())
@@ -38,6 +40,8 @@ $(document).ready(() => {
 			console.log(response.data)
 			swal("Sucess", "Thanks for signing up, please now log in with your new email and password", "success")
 			.then(() => {
+				// Loading overlay stop
+				$('body').loading('stop')
 				window.location.replace('page-login.html')
 			})
 		})

@@ -7,7 +7,7 @@ $(document).ready(() => {
 	}, 100)
 
 	// Declaring date now
-	let dateNow = new Date('December 12, 2018')
+	let dateNow = new Date()
 	let dateNowYear = dateNow.getFullYear()
 	let dateNowDay = dateNow.getDate()
 	let dateNowMonth = dateNow.getMonth()
@@ -64,7 +64,6 @@ $(document).ready(() => {
 
 	// Setting year of birth
 	applicationYearSetting = () => {
-		console.log($('#monthAdmission').val())
 		$('#yearAdmission').empty()
 		let dateAdmission = new Date()
 		let minYearAdmission = dateNowYear
