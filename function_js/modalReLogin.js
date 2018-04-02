@@ -1,7 +1,7 @@
 $(document).ready(() => {
 
 	// Define auth URL
-	const authUrl = 'https://server.mmsustainability.ac.id/auth'
+	const authUrl = 'http://localhost:3000/auth'
 
 	// Get email and pass for login
 	getCredentials = () => {
@@ -48,7 +48,7 @@ $(document).ready(() => {
 				email: $('#email').val()
 			}
 			// Change the email
-			const urlChangeEmail = `https://server.mmsustainability.ac.id/auth/changeEmail/`
+			const urlChangeEmail = `http://localhost:3000/auth/changeEmail/`
 			axios.post(urlChangeEmail, userObj)
 			.then((response) => {
 				console.log(response.data)
@@ -82,7 +82,7 @@ $(document).ready(() => {
 				axios.post(authUrl, getCredentialsForPassword())
 				.then((response) => {
 					// Change the password
-					const urlChangePassword = `https://server.mmsustainability.ac.id/auth/changePassword/`
+					const urlChangePassword = `http://localhost:3000/auth/changePassword/`
 					axios.post(urlChangePassword, {
 						password: newRetypePassword
 					})

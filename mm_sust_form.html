@@ -108,19 +108,19 @@
 												<select
 													name="dayOfBirth"
 													id="dayOfBirth"
-												class="form-control"></select>
+													class="form-control" disabled></select>
 											</div>
 											<div class="col-md-5">
 												<select
 													name="monthOfBirth"
 													id="monthOfBirth"
-												class="form-control"></select>
+												class="form-control" disabled></select>
 											</div>
 											<div class="col-md-4">
 												<select
 													name="yearOfBirth"
 													id="yearOfBirth"
-												class="form-control"></select>
+												class="form-control" disabled></select>
 											</div>
 										</div>
 									</div>
@@ -164,11 +164,15 @@
 								<div class="row">
 									<div class="col-md-4">
 										<label for="">Type of Identity</label>
-										<input
+										<select
 										name="typeOfIdentity"
 										type="text"
-										class="form-control"
-										placeholder="Type of Identity">
+										class="form-control">
+											<option value="KTP">KTP</option>
+											<option value="KITAS">KITAS</option>
+											<option value="SIM">SIM</option>
+											<option value="Passport">Passport</option>
+										</select>
 									</div>
 									<div class="col-md-4">
 										<label for="">Identity Number</label>
@@ -180,38 +184,53 @@
 									</div>
 									<div class="col-md-4">
 										<label for="">Marital Status</label>
-										<input
+										<select
 										name="maritalStatus"
 										type="text"
-										class="form-control"
-										placeholder="Marital Status">
+										class="form-control">
+											<option value="Married">Married</option>
+											<option value="Single">Single</option>
+											<option value="Divorced">Divorced</option>
+										</select>
 									</div>
 								</div>
 								<br>
 								<div class="row">
 									<div class="col-md-4">
 										<label for="">Phone Number</label>
-										<input
-										name="phoneNumber"
-										type="text"
-										class="form-control"
-										placeholder="Phone Number">
+										<div class="input-group">
+											<div class="input-group-prepend">
+							          <div class="input-group-text">+62</div>
+							        </div>
+											<input
+											id="phoneNumber"
+											name="phoneNumber"
+											type="text"
+											class="form-control"
+											placeholder="Phone Number" disabled>
+										</div>
 									</div>
 									<div class="col-md-4">
 										<label for="">Email Address</label>
 										<input
+										id="emailAddress"
 										name="emailAddress"
 										type="text"
 										class="form-control"
-										placeholder="Email Address">
+										placeholder="Email Address" disabled>
 									</div>
 									<div class="col-md-4">
 										<label for="">Religion</label>
-										<input
+										<select
 										name="religion"
 										type="text"
-										class="form-control"
-										placeholder="Religion">
+										class="form-control">
+											<option value="Catholic">Catholic</option>
+											<option value="Christian">Christian</option>
+											<option value="Moslem">Moslem</option>
+											<option value="Hindu">Hindu</option>
+											<option value="Buddha">Buddha</option>
+										</select>
 									</div>
 								</div>
 							</div>
@@ -782,7 +801,7 @@
 								</div>
 								<div class="p-2">
 									<button
-									id="btnNextForm1"
+									id="btnNextForm2"
 									class="btn btn-primary"
 									style="background-color: transparent; color: black"
 									type="submit">
@@ -856,5 +875,9 @@
 			<script src="function_js/formScript.js"></script>
 			<!-- Date script -->
 			<script src="function_js/dateScript.js"></script>
+			<!-- Date Admission Script -->
+			<script src="function_js/dateAdmissionScript.js"></script>
+			<!-- Batch script -->
+			<script src="function_js/batchScript.js"></script>
 		</body>
 	</html>

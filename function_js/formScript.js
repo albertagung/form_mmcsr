@@ -79,15 +79,20 @@ $(document).ready(() => {
 	})
 
 	// Adding more major and concentration input
-	$('#btnAddUniversity').click((e) => {
+	$('#btnAddUniversity').click( async (e) => {
 		e.preventDefault()
+		let randomId = ''
+		let possible = "abcdefghijklmnopqrstuvwxyz1234567890"
+		for (let i = 0; i < 5; i++ ) {
+			randomId += possible.charAt(Math.floor(Math.random() * possible.length))
+		}
 		$('#universityAdding').append(
 			`<br>
 			<div class="row">
 				<div class="col-md-8">
 					<label for="">University Name</label>
 	    		<input 
-	    			id="${uuidv4()}" 
+	    			id="${randomId}" 
 	    			type="text" 
 	    			class="form-control universityName" 
 	    			placeholder="University Name">
@@ -95,7 +100,7 @@ $(document).ready(() => {
 				<div class="col-md-2">
 					<label for="">From</label>
 	    		<input 
-	    			id="${uuidv4()}"
+	    			id="${randomId}"
 	    			type="text" 
 	    			class="form-control universityStartYear" 
 	    			placeholder="From">
@@ -103,7 +108,7 @@ $(document).ready(() => {
 				<div class="col-md-2">
 					<label for="">To</label>
 	    		<input 
-	    			id="${uuidv4()}"
+	    			id="${randomId}"
 	    			type="text" 
 	    			class="form-control universityEndYear" 
 	    			placeholder="To">
@@ -114,7 +119,7 @@ $(document).ready(() => {
 				<div class="col-md-4">
 					<label for="">Degree</label>
 	    		<input 
-	    			id="${uuidv4()}"
+	    			id="${randomId}"
 	    			name="degree" 
 	    			type="text" 
 	    			class="form-control degree" 
@@ -123,7 +128,7 @@ $(document).ready(() => {
 				<div class="col-md-4">
 					<label for="">Major / Concetration</label>
 	    		<input
-	    			id="${uuidv4()}"
+	    			id="${randomId}"
 	    			name="major" 
 	    			type="text" 
 	    			class="form-control major" 
@@ -136,13 +141,18 @@ $(document).ready(() => {
 	// Adding more qualifications
 	$('#btnAddQualification').click((e) => {
 		e.preventDefault()
+		let randomId = ''
+		let possible = "abcdefghijklmnopqrstuvwxyz1234567890"
+		for (let i = 0; i < 5; i++ ) {
+			randomId += possible.charAt(Math.floor(Math.random() * possible.length))
+		}
 		$('#qualificationsAdding').append(
 			`<br>
 			<div class="row">
 				<div class="col-md-4">
 					<label for="">Course</label>
 					<input 
-						id="${uuidv4()}"
+						id="${randomId}"
 						name="courseQualification"
 						type="text"
 						class="form-control course"
@@ -151,7 +161,7 @@ $(document).ready(() => {
 				<div class="col-md-8">
 					<label for="">Course Details</label>
 					<input 
-						id="${uuidv4()}"
+						id="${randomId}"
 						name="detailQualification"
 						type="text"
 						class="form-control courseDetail"
@@ -166,6 +176,23 @@ $(document).ready(() => {
 	}, 5000)
 
 })
+
+// Populate data from localStorage
+// Declaring object from localStorage
+let applicantObj = JSON.parse(localStorage.getItem('dataUsers'))[0]
+// Setting phone number
+$('#phoneNumber').val(applicantObj.phoneNumber)
+// Setting email address
+$('#emailAddress').val(applicantObj.email)
+// Waiting for js datepicker to run and then replace with localStorage data
+setTimeout(() => {
+	// Setting day of birth
+	$('#dayOfBirth').val(applicantObj.dateOfBirth.dayOfBirth)
+	// Setting month of birth
+	$('#monthOfBirth').val(applicantObj.dateOfBirth.monthOfBirth)
+	// Setting year of birth
+	$('#yearOfBirth').val(applicantObj.dateOfBirth.yearOfBirth)
+}, 100)
 
 // Get data form section 1
 
@@ -505,18 +532,18 @@ validateInputSection2 = () => {
 sendToDatabase = () => {
 	// Get form data from localStorage
 	let objectData = JSON.parse(localStorage.getItem('dataForm'))
-	let applicationApi = 'https://server.mmsustainability.ac.id/applications'
+	let applicationApi = 'http://localhost:3000/applications'
 	// Update user application ID
 	let applicantObj = JSON.parse(localStorage.getItem('dataUsers'))[0]
 	let idUser = applicantObj._id
-	let updateUserApi = `https://server.mmsustainability.ac.id/users/edit/${idUser}`
+	let updateUserApi = `http://localhost:3000/users/edit/${idUser}`
 	axios.post(applicationApi,
 		objectData
 	)
 	.then((response) => {
 		// Sending applicant name
 		// Send email through API
-		let sendEmailApi = 'https://server.mmsustainability.ac.id/emailForm/sendForm'
+		let sendEmailApi = 'http://localhost:3000/emailForm/sendForm'
 		axios.post(sendEmailApi, response.data)
 		.then((responseEmail) => {
 			// Update user through api
