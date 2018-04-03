@@ -1,7 +1,7 @@
 $(document).ready(() => {
 	
 	// Define sign up url
-	const signUpUrl = 'http://localhost:3000/auth/signup'
+	const signUpUrl = 'http://server.mmsustainability.ac.id/auth/signup'
 
 	// Get data user and credentials
 	getDataUser = () => {

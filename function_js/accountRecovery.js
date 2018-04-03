@@ -1,7 +1,7 @@
 $(document).ready(() => {
 
 	// Define account recovery url
-	const urlAccountRecovery = 'http://localhost:3000/auth/resetPassword'
+	const urlAccountRecovery = 'http://server.mmsustainability.ac.id/auth/resetPassword'
 
 	// Trigger send data
 	$('#btnRecoverAccount').click((e) => {

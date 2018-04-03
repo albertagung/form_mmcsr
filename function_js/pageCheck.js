@@ -1,10 +1,10 @@
 $(document).ready(() => {
 
 	// Define update login state url
-	const urlUpdateLoginState = `http://localhost:3000/loginState/5ac27641eb4fab1b5c9eab87`
+	const urlUpdateLoginState = `http://server.mmsustainability.ac.id/loginState/5ac27641eb4fab1b5c9eab87`
 
 	// Check credentials
-	let checkCredentialsUrl = 'http://localhost:3000/auth/check'
+	let checkCredentialsUrl = 'http://server.mmsustainability.ac.id/auth/check'
 	axios.get(checkCredentialsUrl)
 	.then((response) => {
 		// Set logged in user data in localStorage

@@ -1,10 +1,10 @@
 $(document).ready(() => {
 
 	// Define sign out url
-	const urlSignOut = 'http://localhost:3000/auth/signOut'
+	const urlSignOut = 'http://server.mmsustainability.ac.id/auth/signOut'
 
 	// Define update login state url
-	const urlUpdateLoginState = `http://localhost:3000/loginState/5ac27641eb4fab1b5c9eab87`
+	const urlUpdateLoginState = `http://server.mmsustainability.ac.id/loginState/5ac27641eb4fab1b5c9eab87`
 
 	// When button log out pressed
 	$('#btnLogOut').click( async (e) => {
