@@ -552,18 +552,18 @@ validateInputSection2 = () => {
 sendToDatabase = () => {
 	// Get form data from localStorage
 	let objectData = JSON.parse(localStorage.getItem('dataForm'))
-	let applicationApi = 'http://server.mmsustainability.ac.id/applications'
+	let applicationApi = 'https://server.mmsustainability.ac.id/applications'
 	// Update user application ID
 	let applicantObj = JSON.parse(localStorage.getItem('dataUsers'))[0]
 	let idUser = applicantObj._id
-	let updateUserApi = `http://server.mmsustainability.ac.id/users/edit/${idUser}`
+	let updateUserApi = `https://server.mmsustainability.ac.id/users/edit/${idUser}`
 	axios.post(applicationApi,
 		objectData
 	)
 	.then((response) => {
 		// Sending applicant name
 		// Send email through API
-		let sendEmailApi = 'http://server.mmsustainability.ac.id/emailForm/sendForm'
+		let sendEmailApi = 'https://server.mmsustainability.ac.id/emailForm/sendForm'
 		axios.post(sendEmailApi, response.data)
 		.then((responseEmail) => {
 			// Update user through api

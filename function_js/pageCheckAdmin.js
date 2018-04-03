@@ -1,7 +1,7 @@
 $(document).ready(() => {
 
 	// Check credentials
-	let checkCredentialsUrl = 'http://server.mmsustainability.ac.id/auth/checkAdmin'
+	let checkCredentialsUrl = 'https://server.mmsustainability.ac.id/auth/checkAdmin'
 	axios.get(checkCredentialsUrl)
 	.then((response) => {
 		// Set logged in user data in localStorage

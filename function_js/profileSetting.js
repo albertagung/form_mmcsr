@@ -9,7 +9,7 @@ $(document).ready(() => {
 		let applicantObj = JSON.parse(localStorage.getItem('dataUsers'))[0]
 		let applicantName = `${applicantObj.firstName} ${applicantObj.lastName}`
 		let applicationId = applicantObj.applicationId
-		let urlGetApplicationByid = `http://server.mmsustainability.ac.id/applications/${applicationId}`
+		let urlGetApplicationByid = `https://server.mmsustainability.ac.id/applications/${applicationId}`
 		axios.get(urlGetApplicationByid)
 		.then((response) => {
 			let dataUsers = response.data[0]
