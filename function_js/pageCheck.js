@@ -5,7 +5,7 @@ $(document).ready(() => {
 	// Check if user has logged in or not
 	if (objUserEmail) {
 		// Check credentials
-		let checkCredentialsUrl = 'http://localhost:3000/auth/check'
+		let checkCredentialsUrl = 'https://server.mmsustainability.ac.id/auth/check'
 		axios.post(checkCredentialsUrl, objUserEmail)
 		.then((response) => {
 			console.log(response.data)

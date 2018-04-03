@@ -1,7 +1,7 @@
 $(document).ready(() => {
 
 	// Define auth url
-	const authUrl = 'http://localhost:3000/auth'
+	const authUrl = 'https://server.mmsustainability.ac.id/auth'
 
 	// Get email and pass for login
 	getCredentials = () => {
@@ -64,14 +64,14 @@ $(document).ready(() => {
 			// Check if user has logged in or not
 			if (objUserEmail) {
 				// Check credentials
-				let checkCredentialsUrl = 'http://localhost:3000/auth/check'
+				let checkCredentialsUrl = 'https://server.mmsustainability.ac.id/auth/check'
 				axios.post(checkCredentialsUrl, objUserEmail)
 				.then((response) => {
 					console.log(response.data)
 					// Set logged in user data in localStorage
 					localStorage.setItem('dataUsers', JSON.stringify(response.data))
 					// Define update login state url
-					const urlInsertNewLoginState = `http://localhost:3000/loginState`
+					const urlInsertNewLoginState = `https://server.mmsustainability.ac.id/loginState`
 					// Define obj user for database
 					let objUser = {
 						firstName: response.data[0].firstName,

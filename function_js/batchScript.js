@@ -1,7 +1,7 @@
 $(document).ready(() => {
 
 	// Define api get all general settings
-	const urlGetAllGeneralSettings = 'http://localhost:3000/generalSettings'
+	const urlGetAllGeneralSettings = 'https://server.mmsustainability.ac.id/generalSettings'
 
 	// Get current batch data
 	axios.get(urlGetAllGeneralSettings).then((response) => {

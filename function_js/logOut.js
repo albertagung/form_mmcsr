@@ -8,7 +8,7 @@ $(document).ready(() => {
 		// Clear the local storage
 		await localStorage.clear()
 		// Define update login state url
-		const urlRemoveLoginState = `http://localhost:3000/loginState/remove/${applicantObj.email}`
+		const urlRemoveLoginState = `https://server.mmsustainability.ac.id/loginState/remove/${applicantObj.email}`
 		// Delete loginState
 		axios.delete(urlRemoveLoginState).then(() => {
 			window.location.replace('page-login.html')
