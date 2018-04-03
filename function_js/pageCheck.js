@@ -1,26 +1,26 @@
 $(document).ready(() => {
 
-	// Define update login state url
-	const urlUpdateLoginState = `https://server.mmsustainability.ac.id/loginState/5ac27641eb4fab1b5c9eab87`
-
-	// Check credentials
-	let checkCredentialsUrl = 'https://server.mmsustainability.ac.id/auth/check'
-	axios.get(checkCredentialsUrl)
-	.then((response) => {
-		// Set logged in user data in localStorage
-		localStorage.setItem('dataUsers', JSON.stringify(response.data))
-		// Define obj user for database
-		let objUser = {
-			firstName: response.data[0].firstName,
-			lastName: response.data[0].lastName,
-			email: response.data[0].email
-		}
-		axios.put(urlUpdateLoginState, objUser)
-	})
-	.catch((err) => {
+	// Get user email from localStorage
+	const objUserEmail = JSON.parse(localStorage.getItem('userEmail'))
+	// Check if user has logged in or not
+	if (objUserEmail) {
+		// Check credentials
+		let checkCredentialsUrl = 'http://localhost:3000/auth/check'
+		axios.post(checkCredentialsUrl, objUserEmail)
+		.then((response) => {
+			console.log(response.data)
+			// Set logged in user data in localStorage
+			localStorage.setItem('dataUsers', JSON.stringify(response.data))
+		})
+		.catch((err) => {
+			swal("Alert!", "Please log in first!", "warning").then(() => {
+				window.location.replace('page-login.html')
+			})
+		})
+	} else {
 		swal("Alert!", "Please log in first!", "warning").then(() => {
 			window.location.replace('page-login.html')
 		})
-	})
+	}
 
 })

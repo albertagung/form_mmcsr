@@ -1,7 +1,7 @@
 $(document).ready(() => {
 
 	// Define auth URL
-	const authUrl = 'https://server.mmsustainability.ac.id/auth'
+	const authUrl = 'http://localhost:3000/auth'
 
 	// Get email and pass for login
 	getCredentials = () => {
@@ -27,7 +27,6 @@ $(document).ready(() => {
 
 	// Re login change email and profile
 	$('#btnReLogin').click((e) => {
-		console.log('masuk')
 		e.preventDefault()
 		// Loading overlay start
 		$('.modal-container').loading('start')
@@ -51,12 +50,12 @@ $(document).ready(() => {
 				email: $('#email').val()
 			}
 			// Change the email
-			const urlChangeEmail = `https://server.mmsustainability.ac.id/auth/changeEmail/`
+			const urlChangeEmail = `http://localhost:3000/auth/changeEmail/`
 			axios.post(urlChangeEmail, userObj)
 			.then((response) => {
 				// Loading overlay stop
 				$('.modal-container').loading('stop')
-				swal("Success", "Please re-login with your new credentials", "sucess")
+				swal("Success", "Please re-login with your new credentials", "success")
 				.then(() => {
 					window.location.replace('page-login.html')
 				})
@@ -96,7 +95,7 @@ $(document).ready(() => {
 				axios.post(authUrl, getCredentialsForPassword())
 				.then((response) => {
 					// Change the password
-					const urlChangePassword = `https://server.mmsustainability.ac.id/auth/changePassword/`
+					const urlChangePassword = `http://localhost:3000/auth/changePassword/`
 					axios.post(urlChangePassword, {
 						password: newRetypePassword
 					})
